@@ -22,20 +22,20 @@
                   <div class="col-lg-7 px-5 pt-5">
                       <h1 class="font-weight-bold py-3">Emergency Alert System</h1>
                       <h4>Sign into your account</h4>
-                      <form>
+                      <form action="process_login.php" method="post">
                           <div class="form-row">
                               <div class="col-lg-7">
-                                  <input id="officer_id"type="text" placeholder="Officer ID" class="form-control my-3 p-4" >
+                                  <input id="officer_id" name="officer_id" type="text" placeholder="Officer ID" class="form-control my-3 p-4" >
                               </div>
                           </div>
                           <div class="form-row">
                               <div class="col-lg-7">
-                                  <input id ="password" type="password" placeholder="Password" class="form-control my-3 p-4" >
+                                  <input id ="pwd" name="pwd" type="password" placeholder="Password" class="form-control my-3 p-4" >
                               </div>
                           </div>
                           <div class="form-row">
                               <div class="col-lg-7">
-                                  <button type="button" class="btn1 mt-3 mb-5">Login</button>
+                                  <button type="submit" name="login" class="btn1 mt-3 mb-5">Login</button>
                               </div>
                           </div>
                           <a href="#">Forgot Password</a>

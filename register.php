@@ -1,3 +1,67 @@
+<?php
+if(isset($_POST["submit"]))
+{
+    //Get form data
+    $officer_id=$_POST["officer_id"];
+    $officer_name=$_POST["officer_name"]?? "";
+    $officer_email=$_POST["officer_email"]?? "";
+    $pwd=$_POST["pwd"]?? "";
+    $pwd2=$_POST["pwd2"]?? "";
+
+    //form validation
+
+    if($pwd2 != $pwd)
+    {
+        echo '<script>alert("Your Passwords Do Not Match ")</script>';
+        echo '<script>window.location="register.php"</script>';
+
+    } 
+    else
+    {
+        //Form is valid
+        //Connect to DB
+    
+        $mysqli=NEW MySQLi('localhost','root','','cs_project');
+
+        //Sanitize the form data-value is stripped of characters that can be used for SQL Injection
+        $officer_id=$mysqli->real_escape_string($officer_id);
+        $officer_name=$mysqli->real_escape_string($officer_name);
+        $officer_email=$mysqli->real_escape_string($officer_email);
+        $pwd=$mysqli->real_escape_string($pwd);
+        $pwd2=$mysqli->real_escape_string($pwd2);
+
+        //Generate VKey-appended timestamp with officer id and hash it
+        $vkey=md5(time().$officer_id);
+
+        //insert records into db
+        $pwd=md5($pwd);
+        $insert=$mysqli->query("INSERT INTO user(officer_id,officer_name,officer_email,pwd,vkey)VALUES('$officer_id','$officer_name','$officer_email','$pwd','$vkey')");
+
+
+        if($insert)
+        {
+            //echo "Success";
+            //echo '<script>alert("SUCCESS")</script>';
+            //echo '<script>window.location="register.php"</script>';
+
+            //Send email
+            $to=$officer_email;
+            $subject="Email Verification";
+            $message="<a href='http://localhost/register/verify.php?vkey=$vkey'>Register Account</a>";
+            $headers="FROM: naomi.munyiri11@gmail.com \r\n";
+            $headers .="MIME-Version: 1.0" . "\r\n";
+            $headers .="Content-type:text/html;charset=UTF-8" . "\r\n";
+
+            mail($to,$subject,$message,$headers);
+            header('location:thankyou.php');     
+        
+        }else
+        {
+            $mysqli->error;
+        }   
+    }
+}
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -22,36 +86,36 @@
                   <div class="col-lg-7 px-5 pt-5">
                       <h1 class="font-weight-bold py-3">Emergency Alert System</h1>
                       <h4>Create your Account</h4>
-                      <form>
+                      <form method="POST" action="">
                       <div class="form-row">
                               <div class="col-lg-7">
-                                  <input id="officer_id" type="text" placeholder="Officer ID" class="form-control my-3 p-4" >
+                                  <input id="officer_id" name ="officer_id"type="text" placeholder="Officer ID" class="form-control my-3 p-4" >
                               </div>
                           </div>
                           <div class="form-row">
                               <div class="col-lg-7">
-                                  <input id="officer_name" type="text" placeholder="Name" class="form-control my-3 p-4" >
+                                  <input type="text" id="officer_name" name="officer_name" placeholder="Name" class="form-control my-3 p-4" >
                               </div>
                           </div>
                           <div class="form-row">
                               <div class="col-lg-7">
-                                  <input id="officer_email" type="email" placeholder="Email Address" class="form-control my-3 p-4">
+                                  <input id="officer_email" type="email" name="officer_email" placeholder="Email Address" class="form-control my-3 p-4">
                               </div>
                           </div>
                           <div class="form-row">
                               <div class="col-lg-7">
-                                  <input id="password" type="password" placeholder="Password" class="form-control my-3 p-4" >
+                                  <input id="pwd" type="password" name="pwd" placeholder="Password" class="form-control my-3 p-4" >
                               </div>
                           </div>
                           <div class="form-row">
                               <div class="col-lg-7">
-                                  <input id="password" type="password" placeholder="Confirm Password" class="form-control my-3 p-4" >
+                                  <input id="pwd2" type="password" name="pwd2"placeholder="Confirm Password" class="form-control my-3 p-4" >
                               </div>
                           </div>
                           <div class="form-row">
                               
                           <div class="col-lg-7">
-                              <button type="button" class="btn1 mt-3 mb-5">Register</button>
+                              <button type="submit" name="submit" class="btn1 mt-3 mb-5">Register</button>
                             </div>
                           </div>
                           <p>Already have an account? <a href="login.php">Login here</a></p>
@@ -62,8 +126,6 @@
           </div>
       </section>
     
-
-
 
 
 
