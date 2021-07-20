@@ -47,8 +47,8 @@ if(isset($_POST["submit"]))
             //Send email
             $to=$officer_email;
             $subject="Email Verification";
-            $message="<a href='http://localhost/register/verify.php?vkey=$vkey'>Register Account</a>";
-            $headers="FROM: naomi.munyiri11@gmail.com \r\n";
+            $message="Click Here To <a href='http://localhost/CS-Project-I/CS-Project-I/verify.php?vkey=$vkey'>Verify Account</a>";
+            $headers="FROM: alertsystem75@yahoo.com \r\n";
             $headers .="MIME-Version: 1.0" . "\r\n";
             $headers .="Content-type:text/html;charset=UTF-8" . "\r\n";
 

@@ -1,3 +1,47 @@
+<?php
+require_once("db_connect.php");
+if(isset($_POST["login"]))
+{
+
+    $officer_id=$_POST['officer_id'];
+    $pwd=$_POST['pwd'];
+    $pwd2=md5($pwd);
+
+    $query1="SELECT * FROM user WHERE officer_id='".$officer_id."'";
+    $resultSet=mysqli_query($conn,$query1);
+
+    print_r($resultSet);
+    echo $pwd2;
+    echo $pwd;
+
+    $row = mysqli_fetch_array($resultSet);
+    $pwd2=$row['pwd'];
+    $verified=$row['verified'];
+
+
+    if(mysqli_num_rows($resultSet)==null)
+    {
+        echo '<script>alert("ERROR")</script>';
+        echo '<script>window.location="login.php"</script>';
+    }
+    elseif($verified==0)
+    {
+        echo '<script>alert("ACCOUNT NOT VERIFIED. CHECK EMAIL")</script>';
+        echo '<script>window.location="login.php"</script>';
+        
+    }
+    elseif($verified==1 && $pwd2 == md5($pwd))
+    {
+        echo '<script>alert("SUCCESS")</script>';
+        echo '<script>window.location="landing_page.php"</script>';
+        header('location:landing_page.php');
+    }else{
+        echo '<script>alert("PASSWORD NOT CORRECT")</script>';
+        echo '<script>window.location="login.php"</script>';
+        
+    }
+}
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -22,7 +66,7 @@
                   <div class="col-lg-7 px-5 pt-5">
                       <h1 class="font-weight-bold py-3">Emergency Alert System</h1>
                       <h4>Sign into your account</h4>
-                      <form action="process_login.php" method="post">
+                      <form action="" method="post">
                           <div class="form-row">
                               <div class="col-lg-7">
                                   <input id="officer_id" name="officer_id" type="text" placeholder="Officer ID" class="form-control my-3 p-4" >
@@ -38,7 +82,7 @@
                                   <button type="submit" name="login" class="btn1 mt-3 mb-5">Login</button>
                               </div>
                           </div>
-                          <a href="#">Forgot Password</a>
+                          <a href="passwordreset.php">Forgot Password</a>
                           <p>Don't have an account? <a href="register.php">Register here</a></p>
                       </form>
 
@@ -47,11 +91,6 @@
           </div>
       </section>
     
-
-
-
-
-
 
     <!-- Optional JavaScript; choose one of the two! -->
 
