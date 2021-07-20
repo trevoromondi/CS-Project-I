@@ -30,7 +30,7 @@
                           </div>
                           <div class="form-row">
                               <div class="col-lg-7">
-                                  <input id="officer_email"type="email" placeholder="Email Address" class="form-control my-3 p-4" >
+                                  <input id ="password" type="password" placeholder="Current Password" class="form-control my-3 p-4" >
                               </div>
                           </div>
                           <div class="form-row">
