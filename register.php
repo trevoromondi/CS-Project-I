@@ -23,24 +23,29 @@
                       <h1 class="font-weight-bold py-3">Emergency Alert System</h1>
                       <h4>Create your Account</h4>
                       <form>
-                          <div class="form-row">
+                      <div class="form-row">
                               <div class="col-lg-7">
-                                  <input type="text" placeholder="Name" class="form-control my-3 p-4" >
+                                  <input id="officer_id" type="text" placeholder="Officer ID" class="form-control my-3 p-4" >
                               </div>
                           </div>
                           <div class="form-row">
                               <div class="col-lg-7">
-                                  <input type="email" placeholder="Email Address" class="form-control my-3 p-4">
+                                  <input id="officer_name" type="text" placeholder="Name" class="form-control my-3 p-4" >
                               </div>
                           </div>
                           <div class="form-row">
                               <div class="col-lg-7">
-                                  <input type="password" placeholder="Password" class="form-control my-3 p-4" >
+                                  <input id="officer_email" type="email" placeholder="Email Address" class="form-control my-3 p-4">
                               </div>
                           </div>
                           <div class="form-row">
                               <div class="col-lg-7">
-                                  <input type="password" placeholder="Confirm Password" class="form-control my-3 p-4" >
+                                  <input id="password" type="password" placeholder="Password" class="form-control my-3 p-4" >
+                              </div>
+                          </div>
+                          <div class="form-row">
+                              <div class="col-lg-7">
+                                  <input id="password" type="password" placeholder="Confirm Password" class="form-control my-3 p-4" >
                               </div>
                           </div>
                           <div class="form-row">

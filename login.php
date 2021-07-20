@@ -25,12 +25,12 @@
                       <form>
                           <div class="form-row">
                               <div class="col-lg-7">
-                                  <input type="text" placeholder="Employee ID" class="form-control my-3 p-4" >
+                                  <input id="officer_id"type="text" placeholder="Officer ID" class="form-control my-3 p-4" >
                               </div>
                           </div>
                           <div class="form-row">
                               <div class="col-lg-7">
-                                  <input type="password" placeholder="Password" class="form-control my-3 p-4" >
+                                  <input id ="password" type="password" placeholder="Password" class="form-control my-3 p-4" >
                               </div>
                           </div>
                           <div class="form-row">
