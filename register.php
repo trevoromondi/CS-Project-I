@@ -81,7 +81,7 @@ if(isset($_POST["submit"]))
           <div class="container">
               <div class="row g-0">
                   <div class="col-lg-5">
-                      <img src="fire.jpg" class="img-fluid" alt="">
+                      <img src="./assets/fire.jpg" class="img-fluid" alt="">
                   </div>
                   <div class="col-lg-7 px-5 pt-5">
                       <h1 class="font-weight-bold py-3">Emergency Alert System</h1>

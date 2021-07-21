@@ -31,7 +31,7 @@ error_reporting(E_ALL ^ E_NOTICE);
                           <span class="icon-bar"></span>  
                       </button>
                       <a href="#">
-                          <img class="logo" src="emergency-call.png">
+                          <img class="logo" src="./assets/emergency-call.png">
                       </a>
                   </div>
 
@@ -57,7 +57,7 @@ error_reporting(E_ALL ^ E_NOTICE);
                       <a class="btn btn_second" href="passwordreset.php">Change Password</a>
                   </div>
                   <div class="col-sm-6 banner-image">
-                      <img src="heli.jpg" class="img-responsive">
+                      <img src="./assets/heli.jpg" class="img-responsive">
                   </div>
               </div>
           </div>
