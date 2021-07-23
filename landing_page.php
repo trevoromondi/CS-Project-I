@@ -38,7 +38,7 @@ error_reporting(E_ALL ^ E_NOTICE);
                   <div class="collapse navbar-collapse" id="micon">
 
                   <ul class="nav navbar-nav navbar-right">
-                      <li><a href="#">Home</a></li>
+                      <li><a href="landing_page.php">Home</a></li>
                       <li><?php echo "<p> WELCOME: OFFICER ID-".$_SESSION['officer_id'];?></li>
                       <li><button type="submit" name="logout" class="btn1">Logout</button></li>
                   </ul>
