@@ -22,33 +22,51 @@
                   <div class="col-lg-7 px-5 pt-5">
                       <h1 class="font-weight-bold py-3">Emergency Alert System</h1>
                       <h4>Reset Password</h4>
-                      <form>
+
+                      <?php
+                      require_once('passres.php');
+                      if($_GET['officer_id'] && $_GET['pwd']){
+                          $officer_id=$_GET['officer_id'];
+                          $pwd=$_GET['pwd'];
+                          $mysqli=NEW MySQLi('localhost','root','','cs_project');
+                          //mysql_select_db('cs_project');
+                          $select=$mysqli->query("SELECT officer_id, pwd FROM user WHERE (officer_id)='$officer_id' and md5(pwd)='$pwd'");
+                          if(mysql_num_rows($select)==1)
+                          {
+                              ?>
+                              
+                    <form method="post" action="passres.php">
                           <div class="form-row">
                               <div class="col-lg-7">
-                                  <input id="officer_id"type="text" placeholder="Officer ID" class="form-control my-3 p-4" >
+                                  <input id="officer_id" name="officer_id" type="text" class="form-control my-3 p-4">
                               </div>
                           </div>
+                          <!--<div class="form-row">
+                              <div class="col-lg-7">
+                                  <input id ="password" value="<?php //echo $officer_id;?>" class="form-control my-3 p-4" >
+                              </div>
+                          </div>-->
                           <div class="form-row">
                               <div class="col-lg-7">
-                                  <input id ="password" type="password" placeholder="Current Password" class="form-control my-3 p-4" >
+                                  <input id ="pwd" name="pwd" type="password" placeholder="New Password" class="form-control my-3 p-4" >
                               </div>
                           </div>
-                          <div class="form-row">
-                              <div class="col-lg-7">
-                                  <input id ="password" type="password" placeholder="New Password" class="form-control my-3 p-4" >
-                              </div>
-                          </div>
-                          <div class="form-row">
+                          <!--<div class="form-row">
                               <div class="col-lg-7">
                                   <input id ="password" type="password" placeholder="Confirm New Password" class="form-control my-3 p-4" >
                               </div>
-                          </div>
+                          </div>-->
                           <div class="form-row">
                               <div class="col-lg-7">
-                                  <button type="button" class="btn1 mt-3 mb-5">Reset Password</button>
+                                  <input type="submit" name="password_reset" class="btn1 mt-3 mb-5">
                               </div>
                           </div>
                       </form>
+                      
+                      <?php
+                      }
+                    }
+                    ?>
 
                   </div>
               </div>
@@ -72,4 +90,4 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
     -->
   </body>
-</html>
+</html> 
