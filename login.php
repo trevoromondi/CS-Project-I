@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once("db_connect.php");
 if(isset($_POST["login"]))
 {
@@ -21,7 +22,7 @@ if(isset($_POST["login"]))
 
     if(mysqli_num_rows($resultSet)==null)
     {
-        echo '<script>alert("ERROR")</script>';
+        echo '<script>alert("ACCOUNT NOT IN DATABASE")</script>';
         echo '<script>window.location="login.php"</script>';
     }
     elseif($verified==0)
@@ -32,6 +33,8 @@ if(isset($_POST["login"]))
     }
     elseif($verified==1 && $pwd2 == md5($pwd))
     {
+        $_SESSION['officer_id']=$officer_id;
+        
         echo '<script>alert("SUCCESS")</script>';
         echo '<script>window.location="landing_page.php"</script>';
         header('location:landing_page.php');
