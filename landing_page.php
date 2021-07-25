@@ -1,9 +1,10 @@
 <?php
-require_once('db_connect.php');
 session_start();
-//echo "<p align=right> WELCOME: OFFICER ID-".$_SESSION['officer_id'];
-//echo "<br><br>";
-$officer_id='officer_id';
+if(isset($_SESSION['officer_id'])){
+
+    echo "<p align=right> WELCOME: OFFICER ID-".$_SESSION['officer_id'];
+}
+
 error_reporting(E_ALL ^ E_NOTICE);
 ?>
 
@@ -39,8 +40,8 @@ error_reporting(E_ALL ^ E_NOTICE);
 
                   <ul class="nav navbar-nav navbar-right">
                       <li><a href="landing_page.php">Home</a></li>
-                      <li><?php echo "<p> WELCOME: OFFICER ID-".$_SESSION['officer_id'];?></li>
-                      <li><button type="submit" name="logout" class="btn1">Logout</button></li>
+                      
+                      <li><a type="logout" name="logout" class="btn1" href="logout.php">Logout</a></li>
                   </ul>
                 </div>
               </div>
