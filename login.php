@@ -27,11 +27,19 @@ if(isset($_POST["login"]))
     }
     elseif($verified==0)
     {
-        echo '<script>alert("ACCOUNT NOT VERIFIED. CHECK EMAIL")</script>';
+        echo '<script>alert("ACCOUNT NOT VERIFIED. CHECK EMAIL OR CONTACT ADMINISTRATOR")</script>';
         echo '<script>window.location="login.php"</script>';
         
     }
-    elseif($verified==1 && $pwd2 == md5($pwd))
+    elseif($verified==1 && $pwd2 == md5($pwd) && $row['role']=='Admin')
+    {
+        $_SESSION['officer_id']=$officer_id;
+        
+        echo '<script>alert("SUCCESS")</script>';
+        echo '<script>window.location="admin.php"</script>';
+        header('location:admin.php');
+    }
+    elseif($verified==1 && $pwd2 == md5($pwd) && $row['role']=='Client')
     {
         $_SESSION['officer_id']=$officer_id;
         

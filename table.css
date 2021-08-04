@@ -1,0 +1,19 @@
+table{
+	border-collapse: collapse;
+	width:100%;
+	color:#000;
+	font-family: monospace;
+	font-size: 15px;
+	text-align: left;
+}
+th{
+	background-color: #000;
+	color:white;
+}
+
+tr:nth-child(even) {background-color:#f2f2f2}
+
+body{
+	background:url(images/login10.jpg);
+	background-size: cover;
+}
