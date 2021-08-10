@@ -4,6 +4,9 @@ if(isset($_SESSION['officer_id'])){
 
     echo "<p align=right> WELCOME: OFFICER ID-".$_SESSION['officer_id'];
 }
+else{ 
+    header("Location: login.php");
+  }
 
 error_reporting(E_ALL ^ E_NOTICE);
 ?>
@@ -40,6 +43,8 @@ error_reporting(E_ALL ^ E_NOTICE);
 
                   <ul class="nav navbar-nav navbar-right">
                       <li><a href="landing_page.php">Home</a></li>
+                      <li><a href="updateprofile.php">Profile</a></li>
+
                       
                       <li><a type="logout" name="logout" class="btn1" href="logout.php">Logout</a></li>
                   </ul>
@@ -54,8 +59,9 @@ error_reporting(E_ALL ^ E_NOTICE);
                       <h1>Red: Emergency Alert</h1>
                       <p class="big-text">Keep you safe</p>
                       <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
-                      <a class="btn btn_first" href="#">Create message</a>
+                      <a class="btn btn_first" href="createmessage.php">Create message</a>
                       <a class="btn btn_second" href="passwordreset.php">Change Password</a>
+                      
                   </div>
                   <div class="col-sm-6 banner-image">
                       <img src="./assets/heli.jpg" class="img-responsive">

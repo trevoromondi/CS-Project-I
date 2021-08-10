@@ -81,10 +81,10 @@
   <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
     <div class="bg-white py-2 collapse-inner rounded">
       <h6 class="collapse-header">Customize Alert Messages:</h6>
-      <a class="collapse-item" href="utilities-color.html">View Default Alerts</a>
-      <a class="collapse-item" href="utilities-border.html">Add Default Alerts</a>
-      <a class="collapse-item" href="utilities-animation.html">Edit Default Alerts</a>
-      <a class="collapse-item" href="utilities-animation.html">All Sent Alerts</a>
+      <a class="collapse-item" href="view_default_alerts.php">View Default Alerts</a>
+      <a class="collapse-item" href="create_default_alert.php">Add Default Alerts</a>
+      <a class="collapse-item" href="#">Edit Default Alerts</a>
+      <a class="collapse-item" href="viewalerts.php">All Sent Alerts</a>
     </div>
   </div>
 </li>

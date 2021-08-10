@@ -1,6 +1,12 @@
 <?php
+
+
+
+
 include('includes/header.php'); 
 include('includes/navbar.php'); 
+
+
 ?>
 
 <!-- Begin Page Content -->
@@ -54,6 +60,8 @@ include('includes/navbar.php');
               <div class="h5 mb-0 font-weight-bold text-gray-800"></div>
 
               <?php
+              
+
                 require('db_connect.php');
 
                 $officer_id = $_POST['officer_id'] ?? "";
