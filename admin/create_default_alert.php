@@ -69,14 +69,14 @@ if(isset($_POST["submit"]))
             <form method= "POST" action="" class="row g-3">
                 <div class="col-md-6">
                     <label class="form-label">Officer ID</label>
-                    <input type="text" name="officer_id" class="form-control" value="<?php echo $_SESSION['officer_id']; ?>">
+                    <input type="text" name="officer_id" class="form-control" value="<?php echo $_SESSION['officer_id']; ?>" required>
                 </div>
                 
                 
                 <div class="col-md-12">
                 <label class="form-label">Alert Type</label>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="alert_type" id="exampleRadios1" value="Red" checked>
+                        <input class="form-check-input" type="radio" name="alert_type" id="exampleRadios1" value="Red" checked >
                         <label class="form-check-label" for="exampleRadios1">Red</label>
                     </div>
                     

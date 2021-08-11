@@ -84,28 +84,28 @@ if(isset($_POST["submit"]))
                     <div class="row">
                         <div class="col mb-3">
                             <label class="form-label">Name</label>
-                            <input type="text" name="victim_name" class="form-control" placeholder="Name of Missing Person">
+                            <input type="text" name="victim_name" class="form-control" placeholder="Name of Missing Person" required>
                         </div>
                         <div class="col mb-3">
                             <label class="form-label">Age</label>
-                            <input type="number" name="age" class="form-control" placeholder="Age">
+                            <input type="number" name="age" class="form-control" placeholder="Age" required>
                         </div>
 
                     </div>
 
                     <div class="mb-3">
                         <label class="form-label">Last Seen</label>
-                         <input type="datetime-local" name="last_seen" class="form-control" placeholder="Last Seen">
+                         <input type="datetime-local" name="last_seen" class="form-control" placeholder="Last Seen" required>
                     </div>
 
                     <div class="mb-3">
                         <label class="form-label">Location</label>
-                         <input type="text" name="locations" class="form-control" placeholder="Location">
+                         <input type="text" name="locations" class="form-control" placeholder="Location" required> 
                     </div>
 
                     <div class="mb-3">
                         <label class="form-label">Message</label>
-                         <textarea name="descriptions" class="form-control" placeholder="Input a brief message below" rows="3"></textarea>
+                         <textarea name="descriptions" class="form-control" placeholder="Input a brief message below" rows="3" required></textarea>
                     </div>
 
                     <div class="mb-3">
