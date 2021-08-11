@@ -2,7 +2,7 @@
 session_start();
 if(isset($_SESSION['officer_id'])){
 
-    echo "<p align=right> WELCOME: OFFICER ID-".$_SESSION['officer_id'];
+    //echo "<p align=right> WELCOME: OFFICER ID-".$_SESSION['officer_id'];
 }
 else{ 
     header("Location: login.php");
@@ -42,10 +42,8 @@ error_reporting(E_ALL ^ E_NOTICE);
                   <div class="collapse navbar-collapse" id="micon">
 
                   <ul class="nav navbar-nav navbar-right">
-                      <li><a href="landing_page.php">Home</a></li>
-                      <li><a href="updateprofile.php">Profile</a></li>
-
-                      
+                      <li><a href="userprofile.php">Profile</a></li>
+                      <li><a href="#">WELCOME: OFFICER ID- <?php echo $_SESSION['officer_id']; ?> </a></li>
                       <li><a type="logout" name="logout" class="btn1" href="logout.php">Logout</a></li>
                   </ul>
                 </div>
@@ -58,11 +56,26 @@ error_reporting(E_ALL ^ E_NOTICE);
                   <div class="col-sm-6 banner-info">
                       <h1>Red: Emergency Alert</h1>
                       <p class="big-text">Keep you safe</p>
-                      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
-                      <a class="btn btn_first" href="createmessage.php">Create message</a>
-                      <a class="btn btn_second" href="passwordreset.php">Change Password</a>
+                      <p>This emergency alert system interface will give you the ability to send out emergency alert messages to citizens. Click below to construct a message.</p>
+                      <br>
+                      <br>
+                      <br>
                       
-                  </div>
+                      <div class="dropdown">
+                          <button class="btn btn-danger dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                              Create Message
+                              <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                <li><a href="create_missingperson.php">Missing Person Alert</a></li>
+                                <li><a href="create_terrorism.php">Terrorism Alert</a></li>
+                                <li><a href="create_fire.php">Fire Alert</a></li>
+                            </ul>
+                        </div>
+
+                    
+                      <!--<a class="btn btn_first" href="createmessage.php">Create message</a>-->
+                    </div>
                   <div class="col-sm-6 banner-image">
                       <img src="./assets/heli.jpg" class="img-responsive">
                   </div>
@@ -70,6 +83,15 @@ error_reporting(E_ALL ^ E_NOTICE);
           </div>
           
         </header>
+        
+
+        <footer class="sticky-footer bg-white">
+        <div class="container my-auto">
+          <div class="copyright text-center my-auto">
+            <span>Copyright &copy; RED: Emergecy Alert System 2021</span>
+          </div>
+        </div>
+      </footer>
 
     </body>
 </html>

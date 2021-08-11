@@ -1,77 +1,32 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>Parking</title>
-        <link rel="stylesheet" type="text/css" href="landing.css">
-    </head>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RED | Thank You</title>
+    <link rel="stylesheet" href="https://getbootstrap.com/docs/4.3/getting-started/introduction/">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
     
-    <body>
-        <header>
-            <div class ="wrapper">
-                <div class="logo">
-                    <img src="parkinglogo.png" alt="">
-                    <p>Parking</p>
-                </div>
+</head>
+<body>
+<div class="jumbotron text-center">
+   <i class="bi bi-envelope"></i>
+   <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" fill="currentColor" class="bi bi-envelope" viewBox="0 0 16 16">
+  <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2zm13 2.383-4.758 2.855L15 11.114v-5.73zm-.034 6.878L9.271 8.82 8 9.583 6.728 8.82l-5.694 3.44A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.739zM1 11.114l4.758-2.876L1 5.383v5.73z"/>
+</svg>
+  <h1 class="display-3">Thank You!</h1>
+  <p class="lead"><strong>Please check your email</strong> to verify your account and complete your account setup</p>
+  <hr>
+  <p>
+    Having trouble? Contact Admininstrator
+  </p>
+  <p class="lead">
+    <!--<a class="btn btn-primary btn-sm" href="https://bootstrapcreative.com/" role="button">Continue to homepage</a>-->
+  </p>
+</div>
 
-                <!--<ul class="nav-area">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Menu</a></li>
-                    <li><a href="#">Login</a></li>
-                    <li><a href="#">Contact Us</a></li>
-                </ul>-->
-            </div>
-            
-            
-            <form action="" method="">
-            <div class="welcome-text">
-            <h1 for="codes">Thank you for registering!</h1>
-                <div class="enter">
-                <a type="submit" name="login" class="btn1 mt-3 mb-5">Proceed to Login</a>
-            </div>
-            </div>
-        </form>
-        </header>
-
-        <!--<footer class="footer">
-            <div class="l-footer">
-                <h1 class="logo"><img src="parkinglogo.png" alt=""></h1>
-                <p>PARKING</p>
-            </div>
-
-            <ul class="r-footer">
-                <li>
-                    <h2>Explore</h2>
-                    <ul class="box">
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">Menu</a></li>
-                        <li><a href="#">Login</a></li>
-                        <li><a href="#">Contact Us</a></li>
-                    </ul>
-                </li>
-                
-                <li class="features">
-                    <h2>Need Help?</h2>
-                    <ul class="box h-box">
-                        <li><a href="#">Blog</a></li>
-                        <li><a href="#">Pricing</a></li>
-                        <li><a href="#">Sales</a></li>
-                    </ul>
-                </li>
-                
-                <li>
-                    <h2>Legal</h2>
-                    <ul class="box">
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Terms of Use</a></li>
-                        <li><a href="#">Contract</a></li>
-                    </ul>
-                </li>
-            </ul>
-
-            <div class="b-footer">
-                <p>All Right Reserved by &copy;Parking 2020</p>
-            </div>
-        </footer>-->
-    </body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js" ></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js" ></script>
+</body>
 </html>
