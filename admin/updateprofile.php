@@ -9,20 +9,37 @@ if (!isset($_SESSION["officer_id"])) {
 
 include 'db_connect.php';
 
-    
-    
-    
+if (isset($_POST["submit"])) {
+    $officer_id = mysqli_real_escape_string($conn, $_POST["officer_id"]);
+    $officer_name = mysqli_real_escape_string($conn, $_POST["officer_name"]);
+    $officer_email = mysqli_real_escape_string($conn, $_POST["officer_email"]);
+    $pwd = mysqli_real_escape_string($conn, md5($_POST["pwd"]));
+    $pwd2 = mysqli_real_escape_string($conn, md5($_POST["pwd2"]));
 
-    
-        
+    if ($pwd === $pwd2) {
+        $photo_name = $_FILES["photo"]["name"];
+        $photo_tmp_name = $_FILES["photo"]["tmp_name"];
+        $photo_size = $_FILES["photo"]["size"];
+        $photo_new_name = rand() . $photo_name;
 
-        
-$sql = "SELECT officer_id officer_name, officer_email, photo from user";
-$result = mysqli_query($conn, $sql);
-        
-        
-     
-
+        if ($photo_size > 5242880) {
+            echo "<script>alert('Photo is very big. Maximum photo uploading size is 5MB.');</script>";
+        } else {
+            $sql = "UPDATE user SET officer_name='$officer_name', photo='$photo_new_name' WHERE officer_id='{$_SESSION["officer_id"]}'";
+            $result = mysqli_query($conn, $sql);
+            if ($result) {
+                echo "<script>alert('Profile Updated successfully.');</script>";
+                echo '<script>window.location="admin.php"</script>';
+                move_uploaded_file($photo_tmp_name, "uploads/" . $photo_new_name);
+            } else {
+                echo "<script>alert('Profile can not Updated.');</script>";
+                echo  $conn->error;
+            }
+        }
+    } else {
+        echo "<script>alert('Password not matched. Please try again.');</script>";
+    }
+}
 
 ?>
 <!doctype html>
@@ -44,11 +61,11 @@ $result = mysqli_query($conn, $sql);
           <div class="container">
               <div class="row g-0">
                   <div class="col-lg-5">
-                      <img src="assets/two.jpg" class="img-fluid" alt="">
+                      <img src="./assets/fire.jpg" class="img-fluid" alt="">
                   </div>
                   <div class="col-lg-7 px-5 pt-5">
                       <h1 class="font-weight-bold py-3">Emergency Alert System</h1>
-                      <h4>User Profile</h4>
+                      <h4>Update your profile</h4>
                       <form method="POST" action="" enctype="multipart/form-data">
                       <?php 
                       $sql = "SELECT * FROM user WHERE officer_id='{$_SESSION["officer_id"]}'";
@@ -59,26 +76,20 @@ $result = mysqli_query($conn, $sql);
 
                       <div class="form-row">
                               <div class="col-lg-7">
-                                  <label>Officer ID</label>
-                                  <h6 id="officer_id" name ="officer_id" type="text" placeholder="Officer ID" class=""><?php echo $row['officer_id']; ?></h6>
+                                  <input id="officer_id" name ="officer_id" type="text" placeholder="Officer ID" value="<?php echo $row['officer_id']; ?>" class="form-control my-3 p-4" >
                               </div>
                           </div>
-                          <br>
                           <div class="form-row">
                               <div class="col-lg-7">
-                              <label>Name</label>
-                                  <h6 type="text" id="officer_name" name="officer_name" placeholder="Name" value="" class="" ><?php echo $row['officer_name']; ?></h6>
+                                  <input type="text" id="officer_name" name="officer_name" placeholder="Name" value="<?php echo $row['officer_name']; ?>" class="form-control my-3 p-4" >
                               </div>
                           </div>
-                          <br>
                           <div class="form-row">
                               <div class="col-lg-7">
-                              <label>Email</label>
-                                  <h6 id="officer_email" type="email" name="officer_email" placeholder="Email Address" value="" class=""><?php echo $row['officer_email']; ?></h6>
+                                  <input id="officer_email" type="email" name="officer_email" placeholder="Email Address" value="<?php echo $row['officer_email']; ?>" class="form-control my-3 p-4">
                               </div>
                           </div>
-                          <br>
-                          <!--<div class="form-row">
+                          <div class="form-row">
                               <div class="col-lg-7">
                                   <input id="pwd" type="password" name="pwd" placeholder="Password" class="form-control my-3 p-4" >
                               </div>
@@ -92,7 +103,7 @@ $result = mysqli_query($conn, $sql);
                               <div class="col-lg-7">
                                   <input id="photo" type="file" name="photo" accept="image/*" class="form-control my-3 p-4" >
                               </div>
-                          </div>-->
+                          </div>
                           <?php
                           }
                         }
@@ -100,12 +111,10 @@ $result = mysqli_query($conn, $sql);
 
                           <div class="form-row">
                               <div class="col-lg-7">
-                              <a href="updateprofile.php" class="btn btn-primary stretched-link">Update Profile</a>
+                              <button type="submit" name="submit" class="btn1 mt-3 mb-5">Update Profile</button>
                             </div>
                           </div>
-                          <br>
-                          <br>
-                          <!--<p>Already have an account? <a href="login.php">Login here</a></p>-->
+                          <p>Already have an account? <a href="login.php">Login here</a></p>
                       </form>
 
                   </div>
