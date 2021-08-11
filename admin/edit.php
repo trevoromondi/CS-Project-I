@@ -1,8 +1,7 @@
 <?php 
     require_once('db_connect.php');
     $officer_id = $_GET['officer_id'];
-    $pwd = mysqli_real_escape_string($conn, md5($_POST["pwd"]));
-    $sql = "SELECT officer_id, officer_name,officer_email,role FROM user WHERE officer_id='".$officer_id."'";
+    $sql = "SELECT officer_id, officer_name,officer_email,role,pwd FROM user WHERE officer_id='".$officer_id."'";
     $result = mysqli_query($conn, $sql) or die(mysqli_error($conn)); 
     if (mysqli_num_rows($result) != 1) {
         die('Email not in database');
@@ -34,7 +33,7 @@
             <input type="radio" name="role" value="Client" <?php if($option=="Client") echo 'checked="selected"'; ?>id="Client"><br><br>
 
             <label for="pwd">Password</label>
-            <input type="password" name="pwd"  id="pwd" placeholder="Enter Password">
+            <input type="password" name="pwd"  id="pwd" placeholder="Enter Password"><br><br>
 
             <button type="update" id="update"name="update"style="margin-right: 60px">UPDATE</button><br><br>
         </form>

@@ -34,7 +34,8 @@
       <!-- Sidebar - Brand -->
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
         <div class="sidebar-brand-icon rotate-n-15">
-          <i class="fas fa-laugh-wink"></i>
+        <img class="logo" src="../assets/emergency-call.png" height="48px" padding="2px 10px">
+          
         </div>
         <div class="sidebar-brand-text mx-3">EMERGENCY <sup>ALERT SYSTEM</sup></div>
       </a>
@@ -46,7 +47,7 @@
       <li class="nav-item">
         <a class="nav-link" href="index.php">
           <i class="fas fa-fw fa-tachometer-alt"></i>
-          <span>Dashboard</span></a>
+          <span>Admin Dashboard</span></a>
       </li>
 
       <!-- Divider -->
@@ -83,7 +84,7 @@
       <h6 class="collapse-header">Customize Alert Messages:</h6>
       <a class="collapse-item" href="view_default_alerts.php">View Default Alerts</a>
       <a class="collapse-item" href="create_default_alert.php">Add Default Alerts</a>
-      <a class="collapse-item" href="#">Edit Default Alerts</a>
+      <a class="collapse-item" href="edit_default_alerts.php">Edit Default Alerts</a>
       <a class="collapse-item" href="viewalerts.php">All Sent Alerts</a>
     </div>
   </div>
@@ -115,7 +116,7 @@
             <i class="fa fa-bars"></i>
           </button>
 
-          <!-- Topbar Search -->
+          <!-- Topbar Search
           <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
             <div class="input-group">
               <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
@@ -125,7 +126,7 @@
                 </button>
               </div>
             </div>
-          </form>
+          </form>-->
 
 
           <!-- Topbar Navbar -->
@@ -221,7 +222,6 @@
                       <td>".$row["officer_id"]."</td>
                       <td>".$row["officer_name"]."</td>
                       <td>".$row["alertmessage"]."</td>
-                      <td><button><a href='order_history.php?officer_id=$row[officer_id]'>Alert History</button></td>
                       </tr>
                       ";
                     }
@@ -247,7 +247,7 @@
       <footer class="sticky-footer bg-white">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
-            <span>Copyright &copy; RED: Emergecy Alert System 2021</span>
+            <span>Copyright &copy; RED: Emergency Alert System 2021</span>
           </div>
         </div>
       </footer>

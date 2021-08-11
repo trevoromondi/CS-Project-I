@@ -95,6 +95,10 @@ if(isset($_POST["submit"]))
                 <div class="col-md-12">
                     <button type="submit" name="submit" class="btn btn-primary">Submit</button>
                 </div>
+
+                <div class="col-md-12">
+                    <a href="index.php"class="btn btn-primary">Back</a>
+                </div>
             </form>
         </div>
         

@@ -32,9 +32,10 @@
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
       <!-- Sidebar - Brand -->
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
         <div class="sidebar-brand-icon rotate-n-15">
-          <i class="fas fa-laugh-wink"></i>
+        <img class="logo" src="../assets/emergency-call.png" height="48px" padding="2px 10px">
+          
         </div>
         <div class="sidebar-brand-text mx-3">EMERGENCY <sup>ALERT SYSTEM</sup></div>
       </a>
@@ -46,7 +47,7 @@
       <li class="nav-item">
         <a class="nav-link" href="index.php">
           <i class="fas fa-fw fa-tachometer-alt"></i>
-          <span>Dashboard</span></a>
+          <span>Admin Dashboard</span></a>
       </li>
 
       <!-- Divider -->
@@ -83,7 +84,7 @@
       <h6 class="collapse-header">Customize Alert Messages:</h6>
       <a class="collapse-item" href="view_default_alerts.php">View Default Alerts</a>
       <a class="collapse-item" href="create_default_alert.php">Add Default Alerts</a>
-      <a class="collapse-item" href="#">Edit Default Alerts</a>
+      <a class="collapse-item" href="edit_default_alerts.php">Edit Default Alerts</a>
       <a class="collapse-item" href="viewalerts.php">All Sent Alerts</a>
     </div>
   </div>
@@ -115,7 +116,7 @@
             <i class="fa fa-bars"></i>
           </button>
 
-          <!-- Topbar Search -->
+          <!-- Topbar Search 
           <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
             <div class="input-group">
               <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
@@ -125,7 +126,7 @@
                 </button>
               </div>
             </div>
-          </form>
+          </form>-->
 
 
           <!-- Topbar Navbar -->
@@ -197,8 +198,10 @@
                     <th>Officer ID</th>
 			        <th>Officer Name</th>
 			        <th>Email</th>
+              <th>Verified</th>
 			        <th>Edit</th>
-			        <th>Delete</th> 
+			        <th>Disable</th> 
+              <th>Enable</th>
                 </tr>
                 <?php
                 $conn=mysqli_connect("localhost","root","","cs_project");
@@ -209,8 +212,9 @@
 		              else{
 		                	echo"Did Not Connect ".mysqli_connect_error();
 		              }
- 
-                      $sql="SELECT officer_id,officer_name,officer_email,pwd from user";
+
+                     // $officer_id=$_POST["officer_id"];
+                      $sql="SELECT officer_id,officer_name,officer_email,pwd,verified from user";
                       $result=$conn->query($sql);
 
                   if($result->num_rows>0)
@@ -223,8 +227,10 @@
 				        <td>".$row["officer_id"]."</td>
 				        <td>".$row["officer_name"]."</td>
 				        <td>".$row["officer_email"]."</td>
+                <td>".$row["verified"]."</td>
 				        <td><button><a href='edit.php?officer_id=$row[officer_id]'>Edit</button></td>
 				        <td><button><a href='process_disable.php?officer_id=$row[officer_id]'>Disable</button></td>
+                <td><button><a href='process_enable.php?officer_id=$row[officer_id]'>Enable</button></td>
 				       </tr>
                       ";
                     }
@@ -250,7 +256,7 @@
       <footer class="sticky-footer bg-white">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
-            <span>Copyright &copy; RED: Emergecy Alert System 2021</span>
+            <span>Copyright &copy; RED: Emergency Alert System 2021</span>
           </div>
         </div>
       </footer>

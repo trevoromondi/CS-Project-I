@@ -24,7 +24,7 @@
 <li class="nav-item active">
   <a class="nav-link" href="index.php">
     <i class="fas fa-fw fa-tachometer-alt"></i>
-    <span>Dashboard</span></a>
+    <span>Admin Dashboard</span></a>
 </li>
 
 <!-- Divider -->
@@ -67,7 +67,7 @@
       <h6 class="collapse-header">Customize Alert Messages:</h6>
       <a class="collapse-item" href="view_default_alerts.php">View Default Alerts</a>
       <a class="collapse-item" href="create_default_alert.php">Add Default Alerts</a>
-      <a class="collapse-item" href="utilities-animation.html">Edit Default Alerts</a>
+      <a class="collapse-item" href="edit_default_alerts.php">Edit Default Alerts</a>
       <a class="collapse-item" href="viewalerts.php">All Sent Alerts</a>
     </div>
   </div>
@@ -98,7 +98,7 @@
             <i class="fa fa-bars"></i>
           </button>
 
-          <!-- Topbar Search -->
+          <!-- Topbar Search 
           <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
             <div class="input-group">
               <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
@@ -108,7 +108,7 @@
                 </button>
               </div>
             </div>
-          </form>
+          </form>-->
 
 
           <!-- Topbar Navbar -->

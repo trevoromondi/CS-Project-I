@@ -20,22 +20,22 @@ if(isset($_GET['officer_id']))
         if(mysqli_query($conn,$update))
             {    
             echo '<script>alert("Account Has Been Disabled")</script>';
-            echo '<script>window.location="table.php"</script>';
+            echo '<script>window.location="view_users.php"</script>';
             
             }else{
                 
                 echo '<script>alert("ERROR")</script>';
-                echo '<script>window.location="table.php"</script>';
+                echo '<script>window.location="edit_users.php"</script>';
             }
         }
     }
 }else{
     die('id not provided');
 }
-header("refresh:2,url=table.php");
+header("refresh:2,url=view_users.php");
 
 echo "<br>";
 
-echo"Wait as page refreshes";
+echo '<script>alert("Wait As Page Refreshes")</script>';
 
 ?>

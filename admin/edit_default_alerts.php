@@ -35,7 +35,7 @@
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
         <div class="sidebar-brand-icon rotate-n-15">
         <img class="logo" src="../assets/emergency-call.png" height="48px" padding="2px 10px">
-       <!-- <i class="fas fa-laugh-wink"></i>-->
+          
         </div>
         <div class="sidebar-brand-text mx-3">EMERGENCY <sup>ALERT SYSTEM</sup></div>
       </a>
@@ -195,12 +195,10 @@
               <link rel="stylesheet" href="table.css">
               <table>
                 <tr>
-                  <th>Officer ID</th>
-                  <th>Officer Name</th>
-                  <th>Email</th>
-                  <th>Role</th>
-                  <th>Verified</th>
-                  <th>Alert History</th> 
+                  <th>Alert ID</th>
+                  <th>Alert Type</th>
+                  <th>Alert Message</th>
+                  <th>Edit</th>
                 </tr>
                 <?php
                 $conn=mysqli_connect("localhost","root","","cs_project");
@@ -212,7 +210,7 @@
 		                	echo"Did Not Connect ".mysqli_connect_error();
 		              }
  
-                  $sql="SELECT officer_id,officer_name,officer_email,role,verified,pwd from user";
+                  $sql="SELECT alert_id,alert_type,alert_message from default_alerts";
                   $result=$conn->query($sql);
 
                   if($result->num_rows>0)
@@ -222,13 +220,10 @@
 
                       echo"
                       <tr>
-                      <td>".$row["officer_id"]."</td>
-                      <td>".$row["officer_name"]."</td>
-                      <td>".$row["officer_email"]."</td>
-                      <td>".$row["role"]."</td>
-                      <td>".$row["verified"]."</td>
-
-                      <td><button><a href='order_history.php?officer_id=$row[officer_id]'>Alert History</button></td>
+                      <td>".$row["alert_id"]."</td>
+                      <td>".$row["alert_type"]."</td>
+                      <td>".$row["alert_message"]."</td>
+                      <td><button><a href='edit_alerts.php'>Edit</button></td>
                       </tr>
                       ";
                     }
