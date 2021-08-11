@@ -9,13 +9,6 @@ if (!isset($_SESSION["officer_id"])) {
 
 include 'db_connect.php';
 
-    
-    
-    
-
-    
-        
-
         
 $sql = "SELECT officer_id officer_name, officer_email, photo from user";
 $result = mysqli_query($conn, $sql);

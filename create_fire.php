@@ -84,11 +84,11 @@ if(isset($_POST["submit"]))
                     <div class="row">
                         <div class="col mb-3">
                             <label class="form-label">Type</label>
-                            <input type="text" name="fire_type" class="form-control" value="Fire Emergency">
+                            <input type="text" name="fire_type" class="form-control" value="Fire Emergency" required>
                         </div>
                         <div class="col mb-3">
                             <label class="form-label">Category</label>
-                            <input type="text" name="category" class="form-control" >
+                            <input type="text" name="category" class="form-control" required>
                         </div>
 
                     </div>
@@ -96,22 +96,22 @@ if(isset($_POST["submit"]))
 
                     <div class="mb-3">
                         <label class="form-label">Location</label>
-                         <input type="text" name="locations" class="form-control" placeholder="Location">
+                         <input type="text" name="locations" class="form-control" placeholder="Location" required>
                     </div>
 
                     <div class="mb-3">
                         <label class="form-label">District</label>
-                         <input type="text" name="district" class="form-control" placeholder="District">
+                         <input type="text" name="district" class="form-control" placeholder="District" required>
                     </div>
 
                     <div class="mb-3">
                         <label class="form-label">Road</label>
-                         <input type="text" name="road" class="form-control" placeholder="Road">
+                         <input type="text" name="road" class="form-control" placeholder="Road" required>
                     </div>
 
                     <div class="mb-3">
                         <label class="form-label">Message</label>
-                         <textarea name="descriptions" class="form-control" placeholder="Input a brief message below" rows="3"></textarea>
+                         <textarea name="descriptions" class="form-control" placeholder="Input a brief message below" rows="3" required></textarea>
                     </div>
 
                     <div class="mb-3">

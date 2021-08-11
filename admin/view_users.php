@@ -204,7 +204,7 @@
                   <th >Email</th>
                   <th >Role</th>
                   <th >Verified</th>
-                  <th >Alert History</th> 
+                 
                 </tr>
                 <?php
                 $conn=mysqli_connect("localhost","root","","cs_project");
@@ -232,7 +232,7 @@
                       <td>".$row["role"]."</td>
                       <td>".$row["verified"]."</td>
 
-                      <td><button><a href='order_history.php?officer_id=$row[officer_id]'>Alert History</button></td>
+                      
                       </tr>
                       ";
                     }
