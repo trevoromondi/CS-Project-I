@@ -101,6 +101,7 @@ $result = mysqli_query($conn, $sql);
                           <div class="form-row">
                               <div class="col-lg-7">
                               <a href="updateprofile.php" class="btn btn-primary stretched-link">Update Profile</a>
+                              <a href="passwordreset.php" class="btn btn-primary stretched-link">Password Reset</a>
                             </div>
                           </div>
                           <br>

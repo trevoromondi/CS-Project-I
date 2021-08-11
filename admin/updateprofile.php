@@ -114,7 +114,7 @@ if (isset($_POST["submit"])) {
                               <button type="submit" name="submit" class="btn1 mt-3 mb-5">Update Profile</button>
                             </div>
                           </div>
-                          <p>Already have an account? <a href="login.php">Login here</a></p>
+                          <!--<p>Already have an account? <a href="login.php">Login here</a></p>-->
                       </form>
 
                   </div>
