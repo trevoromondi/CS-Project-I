@@ -4,7 +4,7 @@
 //session_start();
 include('db_connect.php');
 
-$alert_id = $_GET['alert_id'];
+$alert_id = $_POST["alert_id"];
 $qry= mysqli_query($conn, "SELECT * from default_alerts WHERE alert_id='$alert_id'");
 $data = mysqli_fetch_array($qry);
 

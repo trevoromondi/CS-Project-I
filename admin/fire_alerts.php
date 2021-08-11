@@ -118,7 +118,7 @@
             <i class="fa fa-bars"></i>
           </button>
 
-          <!-- Topbar Search 
+          <!-- Topbar Search
           <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
             <div class="input-group">
               <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
@@ -188,7 +188,7 @@
         <div class="container-fluid">
 
           <!-- Page Heading -->
-          <h1 class="h3 mb-4 text-gray-800">User Accounts</h1>
+          <h1 class="h3 mb-4 text-gray-800">Fire Alerts</h1>
 
           <div class="row">
 
@@ -197,9 +197,11 @@
               <link rel="stylesheet" href="table.css">
               <table>
                 <tr>
-                  <th>Alert ID</th>
-                  <th>Alert Type</th>
-                  <th>Alert Message</th>
+                  <th>Fire Type</th>
+                  <th>Category</th>
+                  <th>Location</th>
+                  <th>Description</th>
+
                 </tr>
                 <?php
                 $conn=mysqli_connect("localhost","root","","cs_project");
@@ -211,7 +213,7 @@
 		                	echo"Did Not Connect ".mysqli_connect_error();
 		              }
  
-                  $sql="SELECT alert_id,alert_type,alert_message from default_alerts";
+                  $sql="SELECT fire_type,category,locations,descriptions from fire_alerts";
                   $result=$conn->query($sql);
 
                   if($result->num_rows>0)
@@ -221,9 +223,10 @@
 
                       echo"
                       <tr>
-                      <td>".$row["alert_id"]."</td>
-                      <td>".$row["alert_type"]."</td>
-                      <td>".$row["alert_message"]."</td>
+                      <td>".$row["fire_type"]."</td>
+                      <td>".$row["category"]."</td>
+                      <td>".$row["locations"]."</td>
+                      <td>".$row["descriptions"]."</td>
                       </tr>
                       ";
                     }
