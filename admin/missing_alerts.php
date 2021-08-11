@@ -198,6 +198,7 @@
               
               <table class="table table-secondary table-bordered-responsive">
                 <tr>
+                  <th>Missing Id</th>
                   <th>Victim Name</th>
                   <th>Age</th>
                   <th>Last Seen</th>
@@ -226,6 +227,7 @@
 
                       echo"
                       <tr>
+                      <td>".$row["missing_id"]."</td>
                       <td>".$row["victim_name"]."</td>
                       <td>".$row["age"]."</td>
                       <td>".$row["last_seen"]."</td>

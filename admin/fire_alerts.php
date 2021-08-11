@@ -196,6 +196,7 @@
             <div class="col-lg-6">
               <table class="table table-secondary table-bordered-responsive">
                 <tr>
+                  <th>Fire Id</th>
                   <th>Fire Type</th>
                   <th>Category</th>
                   <th>Location</th>
@@ -212,7 +213,7 @@
 		                	echo"Did Not Connect ".mysqli_connect_error();
 		              }
  
-                  $sql="SELECT fire_type,category,locations,descriptions from fire_alerts";
+                  $sql="SELECT fire_id,fire_type,category,locations,descriptions from fire_alerts";
                   $result=$conn->query($sql);
 
                   if($result->num_rows>0)
@@ -222,6 +223,7 @@
 
                       echo"
                       <tr>
+                      <td>".$row["fire_id"]."</td>
                       <td>".$row["fire_type"]."</td>
                       <td>".$row["category"]."</td>
                       <td>".$row["locations"]."</td>
