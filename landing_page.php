@@ -56,7 +56,7 @@ error_reporting(E_ALL ^ E_NOTICE);
                   <div class="col-sm-6 banner-info">
                       <h1>Red: Emergency Alert</h1>
                       <p class="big-text">Keep you safe</p>
-                      <p>This emergency alert system interface will give you the ability to send out emergency alert messages to citizens. Click below to construct a message</p>
+                      <p>This emergency alert system interface will give you the ability to send out emergency alert messages to citizens. Click below to construct a message.</p>
                       <br>
                       <br>
                       <br>
