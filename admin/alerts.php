@@ -12,7 +12,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>RED | View Users</title>
+  <title>RED | Created Alerts</title>
 
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -21,6 +21,8 @@
 
   <!-- Custom styles for this template-->
   <link href="css/sb-admin-2.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.11.0/css/dataTables.bootstrap4.min.css">
 
 </head>
 
@@ -83,12 +85,10 @@
   <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
     <div class="bg-white py-2 collapse-inner rounded">
       <h6 class="collapse-header">Customize Alert Messages:</h6>
-      <a class="collapse-item" href="view_default_alerts.php">View Default Alerts</a>
-      <a class="collapse-item" href="create_default_alert.php">Add Default Alerts</a>
-      <a class="collapse-item" href="edit_default_alerts.php">Edit Default Alerts</a>
-      <a class="collapse-item" href="fire_alerts.php">All Fire Sent Alerts</a>
-      <a class="collapse-item" href="missing_alerts.php">All Missing Persons Alerts</a>
-      <a class="collapse-item" href="#">All Terrorism Sent Alerts</a>
+      <a class="collapse-item" href="#">View Default Alerts</a>
+      <a class="collapse-item" href="#">Add Default Alerts</a>
+      <a class="collapse-item" href="#">Edit Default Alerts</a>
+      <a class="collapse-item" href="alerts.php">All Sent Alerts</a>
     </div>
   </div>
 </li>
@@ -189,24 +189,26 @@
         <div class="container-fluid">
 
           <!-- Page Heading -->
-          <h1 class="h3 mb-4 text-gray-800">Missing Persons</h1>
+          <h1 class="h3 mb-4 text-gray-800">Fire Alerts</h1>
 
           <div class="row">
 
             <div class="col-lg-6">
-
-              
-              <table class="table table-secondary table-bordered-responsive">
+              <table id="datatableid"class="table table-secondary table-bordered-responsive">
+                <thead>
                 <tr>
-                  <th>Missing Id</th>
-                  <th>Victim Name</th>
-                  <th>Age</th>
-                  <th>Last Seen</th>
-                  <th>Location</th>
+                  <th>Alert Id</th>
+                  <th>Alert Type</th>
+                  <th>County</th>
                   <th>Description</th>
-
+                  <th>Creation Date</th>
+                  <th>Status</th>
+                  <th>Reporting Officer ID</th>
+                  <th>Approve/Disaprove</th>
 
                 </tr>
+                </thead>
+                <tbody>
                 <?php
                 $conn=mysqli_connect("localhost","root","","cs_project");
 
@@ -217,7 +219,7 @@
 		                	echo"Did Not Connect ".mysqli_connect_error();
 		              }
  
-                  $sql="SELECT * from missing_persons";
+                  $sql="SELECT * from alert";
                   $result=$conn->query($sql);
 
                   if($result->num_rows>0)
@@ -227,12 +229,15 @@
 
                       echo"
                       <tr>
-                      <td>".$row["missing_id"]."</td>
-                      <td>".$row["victim_name"]."</td>
-                      <td>".$row["age"]."</td>
-                      <td>".$row["last_seen"]."</td>
-                      <td>".$row["locations"]."</td>
-                      <td>".$row["descriptions"]."</td>
+                      <td>".$row["alertID"]."</td>
+                      <td>".$row["alertType"]."</td>
+                      <td>".$row["county"]."</td>
+                      <td>".$row["alertDescription"]."</td>
+                      <td>".$row["alertCreationDate"]."</td>
+                      <td>".$row["status"]."</td>
+                      <td>".$row["officer_id"]."</td>
+                      <td><button><a href='#'>Edit</button></td>
+
                       </tr>
                       ";
                     }
@@ -246,6 +251,7 @@
                   }
                   $conn->close();
                 ?>
+                </tbody>
               </table>
             </div>
           </div>
@@ -308,6 +314,18 @@
 
   <!-- Custom scripts for all pages-->
   <script src="js/sb-admin-2.min.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdn.datatables.net/1.11.0/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.11.0/js/dataTables.bootstrap4.min.js"></script>
+
+  <script>
+    $(document).ready(function() 
+    {
+      $('#datatableid').DataTable();
+    });
+
+    </script>
 
 </body>
 

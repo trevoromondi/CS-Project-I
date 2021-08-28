@@ -22,6 +22,8 @@
   <!-- Custom styles for this template-->
   <link href="css/sb-admin-2.min.css" rel="stylesheet">
 
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.11.0/css/dataTables.bootstrap4.min.css">
+
 </head>
 
 <body id="page-top">
@@ -83,12 +85,10 @@
   <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
     <div class="bg-white py-2 collapse-inner rounded">
       <h6 class="collapse-header">Customize Alert Messages:</h6>
-      <a class="collapse-item" href="view_default_alerts.php">View Default Alerts</a>
-      <a class="collapse-item" href="create_default_alert.php">Add Default Alerts</a>
-      <a class="collapse-item" href="edit_default_alerts.php">Edit Default Alerts</a>
-      <a class="collapse-item" href="fire_alerts.php">All Fire Sent Alerts</a>
-      <a class="collapse-item" href="missing_alerts.php">All Missing Persons Alerts</a>
-      <a class="collapse-item" href="#">All Terrorism Sent Alerts</a>
+      <a class="collapse-item" href="#.php">View Default Alerts</a>
+      <a class="collapse-item" href="#.php">Add Default Alerts</a>
+      <a class="collapse-item" href="#">Edit Default Alerts</a>
+      <a class="collapse-item" href="alerts.php">Created Alerts</a>
     </div>
   </div>
 </li>
@@ -196,16 +196,18 @@
             <div class="col-lg-6">
 
              <!-- <link rel="stylesheet" href="table.css">-->
-             
-              <table class="table table-secondary table-bordered-responsive">
+              
+              <table id="datatableid"class="table table-secondary table-bordered" style="width:100%">
+                <thead>
                 <tr>
-                  <th >Officer ID</th>
+                  <th> Officer ID</th>
                   <th >Officer Name</th>
                   <th >Email</th>
                   <th >Role</th>
                   <th >Verified</th>
-                 
                 </tr>
+                </thead>
+                <tbody>
                 <?php
                 $conn=mysqli_connect("localhost","root","","cs_project");
 
@@ -225,15 +227,15 @@
                     {
 
                       echo"
+                      
                       <tr>
                       <td>".$row["officer_id"]."</td>
                       <td>".$row["officer_name"]."</td>
                       <td>".$row["officer_email"]."</td>
                       <td>".$row["role"]."</td>
-                      <td>".$row["verified"]."</td>
-
-                      
+                      <td>".$row["verified"]."</td>   
                       </tr>
+                      
                       ";
                     }
                     echo"</table>";
@@ -246,8 +248,10 @@
                   }
                   $conn->close();
                 ?>
+                </tbody>
               </table>
-                </div>
+              </div>
+                
           
           </div>
         </div>
@@ -290,9 +294,9 @@
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
 
-          <form action="logout.php" method="POST"> 
+          <form action="" method="POST">
           
-            <button type="submit" name="logout_btn" class="btn btn-primary">Logout</button>
+            <a type="logout" name="logout_btn" href="../logout.php"class="btn btn-primary">Logout</a>
 
           </form>
         </div>
@@ -309,6 +313,19 @@
 
   <!-- Custom scripts for all pages-->
   <script src="js/sb-admin-2.min.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdn.datatables.net/1.11.0/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.11.0/js/dataTables.bootstrap4.min.js"></script>
+
+  <script>
+    $(document).ready(function() 
+    {
+      $('#datatableid').DataTable();
+    });
+
+    </script>
+
 
 </body>
 
