@@ -6,7 +6,7 @@ if(isset($_POST["submit"]))
     $names=$_POST["names"]?? "";
     $phone_number=$_POST["phone_number"]?? "";
     $citizen_email=$_POST["citizen_email"]?? "";
-    $locations=$_POST["locations"]?? "";
+    $county=$_POST["county"]?? "";
     $pwd=$_POST["pwd"]?? "";
     $pwd2=$_POST["pwd2"]?? "";
 
@@ -30,7 +30,7 @@ if(isset($_POST["submit"]))
         $names=$mysqli->real_escape_string($names);
         $phone_number=$mysqli->real_escape_string($phone_number);
         $citizen_email=$mysqli->real_escape_string($citizen_email);
-        $locations=$mysqli->real_escape_string($locations);
+        $county=$mysqli->real_escape_string($county);
         $pwd=$mysqli->real_escape_string($pwd);
         $pwd2=$mysqli->real_escape_string($pwd2);
 
@@ -39,7 +39,7 @@ if(isset($_POST["submit"]))
 
         //insert records into db
         $pwd=md5($pwd);
-        $insert=$mysqli->query("INSERT INTO citizens(id_number,names,phone_number,citizen_email,locations,pwd)VALUES('$id_number','$names','$phone_number','$citizen_email','$locations','$pwd')");
+        $insert=$mysqli->query("INSERT INTO citizens(id_number,names,phone_number,citizen_email,county,pwd)VALUES('$id_number','$names','$phone_number','$citizen_email','$county','$pwd')");
 
 
         if($insert)
@@ -113,7 +113,7 @@ if(isset($_POST["submit"]))
                           </div>
                           <div class="form-row">
                               <div class="col-lg-7">
-                                  <input type="text" id="locations" name="locations" placeholder="County Residence" class="form-control my-3 p-4" reqquired>
+                                  <input type="text" id="county" name="county" placeholder="County Residence" class="form-control my-3 p-4" required>
                               </div>
                           </div>
                           <div class="form-row">
