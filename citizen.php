@@ -1,144 +1,95 @@
 <?php
-if(isset($_POST["submit"]))
+session_start();
+if(isset($_SESSION['id_number']))
 {
-    //Get form data
-    $id_number=$_POST["id_number"];
-    $names=$_POST["names"]?? "";
-    $phone_number=$_POST["phone_number"]?? "";
-    $citizen_email=$_POST["citizen_email"]?? "";
-    $locations=$_POST["locations"]?? "";
-
-
-        //Connect to DB
-    
-        $mysqli=NEW MySQLi('localhost','root','','cs_project');
-
-        //Sanitize the form data-value is stripped of characters that can be used for SQL Injection
-        $id_number=$mysqli->real_escape_string($id_number);
-        $names=$mysqli->real_escape_string($names);
-        $phone_number=$mysqli->real_escape_string($phone_number);
-        $citizen_email=$mysqli->real_escape_string($citizen_email);
-        $locations=$mysqli->real_escape_string($locations);
-
-        //Generate VKey-appended timestamp with officer id and hash it
-       // $vkey=md5(time().$officer_id);
-
-        //insert records into db
-       // $pwd=md5($pwd);
-        $insert=$mysqli->query("INSERT INTO citizens(id_number,names,phone_number,citizen_email,locations)VALUES('$id_number','$names','$phone_number','$citizen_email','$locations')");
-
-
-        if($insert)
-        {
-            //echo "Success";
-            //echo '<script>alert("SUCCESS")</script>';
-            //echo '<script>window.location="register.php"</script>';
-
-            //Send email
-            $to=$citizen_email;
-            $subject="Phone Number Registration";
-            $message="Thank you for registering for the Emergency Alert System Service. You will now be able to receive SMS messages whenever an emergency arises";
-            $headers="FROM: alertsystem75@yahoo.com \r\n";
-            $headers .="MIME-Version: 1.0" . "\r\n";
-            $headers .="Content-type:text/html;charset=UTF-8" . "\r\n";
-
-            mail($to,$subject,$message,$headers);
-            header('location:citizen_thankyou.php');     
-        
-        }else
-        {
-            $mysqli->error;
-        }   
-    
+  
+    //echo "<p align=right> WELCOME: OFFICER ID-".$_SESSION['officer_id'];  
 }
+else{ 
+  header("Location: citizen_login.php");
+}
+error_reporting(E_ALL ^ E_NOTICE);
 ?>
+
 <!doctype html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<html>
+    <head>
+        <title>Citizen Portal</title>
+        <link rel="stylesheet" type="text/css" href="landing.css">
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    </head>
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
-
-    <title>Phone Number Registration</title>
-
-  </head>
-  <body>
-      <section class="form my-4 mx-5">
-          <div class="container">
-              <div class="row g-0">
-                  <div class="col-lg-5">
-                      <img src="./assets/fire.jpg" class="img-fluid" alt="">
+    <body>
+        <header class="header">
+          <nav class="navbar navbar-style">
+              <div class="container">
+                  <div class="navbar-header">
+                      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#micon">
+                          <span class="icon-bar"></span>
+                          <span class="icon-bar"></span>
+                          <span class="icon-bar"></span>  
+                      </button>
+                      <a href="#">
+                          <img class="logo" src="./assets/emergency-call.png">
+                      </a>
                   </div>
-                  <div class="col-lg-7 px-5 pt-5">
-                      <h1 class="font-weight-bold py-3">Emergency Alert System</h1>
-                      <h4>Register Your Phone Number</h4>
-                      <form method="POST" action="">
-                      <div class="form-row">
-                              <div class="col-lg-7">
-                                  <input id="id_number" name ="id_number"type="text" placeholder="National ID" class="form-control my-3 p-4" required>
-                              </div>
-                          </div>
-                          <div class="form-row">
-                              <div class="col-lg-7">
-                                  <input type="text" id="names" name="names" placeholder="Full Name" class="form-control my-3 p-4" required>
-                              </div>
-                          </div>
-                          <div class="form-row">
-                              <div class="col-lg-7">
-                                  <input type="text" id="phone_number" name="phone_number" placeholder="Phone Number" class="form-control my-3 p-4" required>
-                              </div>
-                          </div>
-                          <div class="form-row">
-                              <div class="col-lg-7">
-                                  <input id="citizen_email" type="email" name="citizen_email" placeholder="Email Address" class="form-control my-3 p-4" required>
-                              </div>
-                          </div>
-                          <div class="form-row">
-                              <div class="col-lg-7">
-                                  <input type="text" id="locations" name="locations" placeholder="County Residence" class="form-control my-3 p-4" reqquired>
-                              </div>
-                          </div>
-                        <!--  <div class="form-row">
-                              <div class="col-lg-7">
-                                  <input id="pwd" type="password" name="pwd" placeholder="Password" class="form-control my-3 p-4" >
-                              </div>
-                          </div>
-                          <div class="form-row">
-                              <div class="col-lg-7">
-                                  <input id="pwd2" type="password" name="pwd2"placeholder="Confirm Password" class="form-control my-3 p-4" >
-                              </div>
-                          </div>
-                          <div class="form-row">-->
-                              
-                          <div class="col-lg-7">
-                              <button type="submit" name="submit" class="btn1 mt-3 mb-5">Register</button>
-                            </div>
-                          </div>
-                         <!-- <p>Already have an account? <a href="login.php">Login here</a></p>-->
-                      </form>
 
+                  <div class="collapse navbar-collapse" id="micon">
+
+                  <ul class="nav navbar-nav navbar-right">
+                      <li><a href="userprofile.php">Profile</a></li>
+                      <li><a href="#">WELCOME: USER- <?php echo $_SESSION['id_number'] ?? ""; ?> </a></li>
+                      <li><a type="logout" name="logout" class="btn1" href="citizen_logout.php">Logout</a></li>
+                  </ul>
+                </div>
+              </div>
+
+          </nav>
+          
+          <div class="container">
+              <div class="row">
+                  <div class="col-sm-6 banner-info">
+                      <h1>Red: Emergency Alert</h1>
+                      <p class="big-text">Keep you safe</p>
+                      <p>By being registered in this emergency alert system, you will receive SMS messages alerts sent out by Police Stations near you.</p>
+                      <p>Click "Delete Account" to unsubscribe from this service, and not receive any more messages.</p>
+                      <p>You will need to re-register to enjoy this service again.</p>
+                      <br>
+                      <br>
+                      <br>
+                  
+                    <form action="delete.php" method="post"> 
+          
+                       <button type="submit" id="delete_btn" name="delete_btn" class="btn btn-danger">Delete Account</button>
+
+                    </form>
+
+                  
+
+                    
+                     <!--<a class="btn btn_first" href="createmessage.php">Create message</a>-->
+                    </div>
+                  <div class="col-sm-6 banner-image">
+                      <img src="./assets/heli.jpg" class="img-responsive">
                   </div>
               </div>
           </div>
-      </section>
-    
+          
+        </header>
+        
 
+        <footer class="sticky-footer bg-white">
+        <div class="container my-auto">
+          <div class="copyright text-center my-auto">
+            <span>Copyright &copy; RED: Emergecy Alert System 2021</span>
+          </div>
+        </div>
+      </footer>
 
-
-
-    <!-- Optional JavaScript; choose one of the two! -->
-
-    <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-
-    <!-- Option 2: Separate Popper and Bootstrap JS -->
-    <!--
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
-    -->
-  </body>
+    </body>
 </html>
