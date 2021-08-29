@@ -236,7 +236,7 @@
                       <td>".$row["alertCreationDate"]."</td>
                       <td>".$row["status"]."</td>
                       <td>".$row["officer_id"]."</td>
-                      <td><button><a href='#'>Edit</button></td>
+                      <td><button><a href='approve.php?alertID=$row[alertID]'>Edit</button></td>
 
                       </tr>
                       ";
