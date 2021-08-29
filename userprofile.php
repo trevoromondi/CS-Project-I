@@ -12,11 +12,11 @@ include 'db_connect.php';
         
 $sql = "SELECT officer_id officer_name, officer_email, photo from user";
 $result = mysqli_query($conn, $sql);
-        
-        
-     
 
-
+if($result)
+{
+    while($row=mysqli_fetch_assoc($result))
+    {
 ?>
 <!doctype html>
 <html lang="en">
@@ -33,23 +33,26 @@ $result = mysqli_query($conn, $sql);
 
   </head>
   <body>
-      <section class="form my-4 mx-5">
-          <div class="container">
-              <div class="row g-0">
-                  <div class="col-lg-5">
-                      <img src="assets/two.jpg" class="img-fluid" alt="">
-                  </div>
-                  <div class="col-lg-7 px-5 pt-5">
-                      <h1 class="font-weight-bold py-3">Emergency Alert System</h1>
-                      <h4>User Profile</h4>
-                      <form method="POST" action="" enctype="multipart/form-data">
+      
                       <?php 
                       $sql = "SELECT * FROM user WHERE officer_id='{$_SESSION["officer_id"]}'";
                       $result = mysqli_query($conn, $sql);
                       if (mysqli_num_rows($result) > 0) {
                           while ($row = mysqli_fetch_assoc($result)) {
-                              ?>
 
+                              ?>
+                    <section class="form my-4 mx-5">
+                        <div class="container">
+                        <div class="row g-0">
+                        <div class="col-lg-5">
+                      <!-- <img src="assets/two.jpg" class="img-fluid" alt=""> -->
+                      <img src="<?php echo $row['photo'];?>" class="img-fluid" style="height: 500px"alt="error">
+                      
+                  </div>
+                  <div class="col-lg-7 px-5 pt-5">
+                      <h1 class="font-weight-bold py-3">Emergency Alert System</h1>
+                      <h4>User Profile</h4>
+                      <form method="POST" action="" enctype="multipart/form-data">
                       <div class="form-row">
                               <div class="col-lg-7">
                                   <label>Officer ID</label>
@@ -89,6 +92,8 @@ $result = mysqli_query($conn, $sql);
                           <?php
                           }
                         }
+                    }
+                }
                         ?>
 
                           <div class="form-row">

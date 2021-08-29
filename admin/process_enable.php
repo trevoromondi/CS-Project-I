@@ -4,7 +4,7 @@ echo "<br>";
 if(isset($_GET['officer_id']))
 {
     $officer_id = $_GET['officer_id'];
-    $verified=$_GET['verified'];
+    $verified=$_GET['verified'] ?? "";
     $query="SELECT verified FROM user WHERE officer_id='$officer_id'";
     $resultSet=mysqli_query($conn,$query);
     
@@ -42,10 +42,6 @@ if(isset($_GET['officer_id']))
 }else{
     die('id not provided');
 }
-header("refresh:2,url=table.php");
-
-echo "<br>";
-
-echo"Wait as page refreshes";
+header("refresh:0.5,url=view_users.php");
 
 ?>

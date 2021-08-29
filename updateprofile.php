@@ -20,17 +20,19 @@ if (isset($_POST["submit"])) {
         $photo_name = $_FILES["photo"]["name"];
         $photo_tmp_name = $_FILES["photo"]["tmp_name"];
         $photo_size = $_FILES["photo"]["size"];
-        $photo_new_name = rand() . $photo_name;
+        $photo_new_name = $photo_name;
+        $file_path="uploads/";
+        $path=$file_path.$photo_new_name;
 
         if ($photo_size > 5242880) {
             echo "<script>alert('Photo is very big. Maximum photo uploading size is 5MB.');</script>";
         } else {
-            $sql = "UPDATE user SET officer_name='$officer_name', photo='$photo_new_name' WHERE officer_id='{$_SESSION["officer_id"]}'";
+            $sql = "UPDATE user SET officer_name='$officer_name', photo='$path' WHERE officer_id='{$_SESSION["officer_id"]}'";
             $result = mysqli_query($conn, $sql);
             if ($result) {
                 echo "<script>alert('Profile Updated successfully.');</script>";
                 echo '<script>window.location="landing_page.php"</script>';
-                move_uploaded_file($photo_tmp_name, "uploads/" . $photo_new_name);
+                move_uploaded_file($photo_tmp_name, "uploads/".$photo_new_name);
             } else {
                 echo "<script>alert('Profile can not Updated.');</script>";
                 echo  $conn->error;
@@ -101,7 +103,7 @@ if (isset($_POST["submit"])) {
                           </div>
                           <div class="form-row">
                               <div class="col-lg-7">
-                                  <input id="photo" type="file" name="photo" accept="image/*" class="form-control my-3 p-4" >
+                                  <input id="photo" type="file" name="photo" accept="image/*" value="<?php echo $row['photo'];?>"class="form-control my-3 p-4" required>
                               </div>
                           </div>
                           <?php
