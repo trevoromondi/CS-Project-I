@@ -58,9 +58,9 @@
                     <label for="Admin">Status</label>
                         <div class="col-lg-7">
                             <label for="Admin">Approved</label>
-                            <input type="radio" name="status" value="Approved"  id="Approved" class="">
+                            <input type="radio" name="status" value="Approved"<?php if($option=="Approved") echo 'checked="checked"'; ?>  id="Approved" class="">
                             <label for="Client">Denied</label>
-                            <input type="radio" name="status" value="Denied" id="Denied" class=""><br><br>
+                            <input type="radio" name="status" value="Denied"<?php if($option=="Denied") echo 'checked="checked"'; ?> id="Denied" class=""><br><br>
                         </div>
                     </div>
 

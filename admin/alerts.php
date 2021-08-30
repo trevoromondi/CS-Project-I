@@ -201,7 +201,7 @@
                   <th>Creation Date</th>
                   <th>Status</th>
                   <th>Reporting Officer ID</th>
-                  <th>Approve/Disaprove</th>
+                  <th>Approve/Deny</th>
 
                 </tr>
                 </thead>
@@ -233,7 +233,7 @@
                       <td>".$row["alertCreationDate"]."</td>
                       <td>".$row["status"]."</td>
                       <td>".$row["officer_id"]."</td>
-                      <td><button><a href='approve.php?alertID=$row[alertID]'>Edit</button></td>
+                      <td><button><a href='approve.php?alertID=$row[alertID]'>Approve/Deny</button></td>
 
                       </tr>
                       ";
