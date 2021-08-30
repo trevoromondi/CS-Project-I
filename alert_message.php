@@ -131,7 +131,7 @@ if(isset($_POST["submit"]))
 
                 <div class="col-md-5 bg-light">
                 <div class="ml-5 ">
-                    <img src="./assets/fr.jpg" alt="" class="img-fluid">
+                    <img src="./assets/red.jpg" alt="" class="img-fluid"style="height: 500px">
                 </div>
                 </div>
 
