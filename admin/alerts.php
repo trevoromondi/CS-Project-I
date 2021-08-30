@@ -84,10 +84,7 @@
   </a>
   <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
     <div class="bg-white py-2 collapse-inner rounded">
-      <h6 class="collapse-header">Customize Alert Messages:</h6>
-      <a class="collapse-item" href="#">View Default Alerts</a>
-      <a class="collapse-item" href="#">Add Default Alerts</a>
-      <a class="collapse-item" href="#">Edit Default Alerts</a>
+      <h6 class="collapse-header">Alert Messages:</h6>
       <a class="collapse-item" href="alerts.php">All Sent Alerts</a>
     </div>
   </div>
@@ -168,7 +165,7 @@
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                <a class="dropdown-item" href="#">
+                <a class="dropdown-item" href="userprofile.php">
                   <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                   Profile
                 </a>
@@ -189,7 +186,7 @@
         <div class="container-fluid">
 
           <!-- Page Heading -->
-          <h1 class="h3 mb-4 text-gray-800">Fire Alerts</h1>
+          <h1 class="h3 mb-4 text-gray-800">Alerts</h1>
 
           <div class="row">
 
@@ -295,9 +292,9 @@
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
 
-          <form action="logout.php" method="POST"> 
+          <form action="" method="POST">
           
-            <button type="submit" name="logout_btn" class="btn btn-primary">Logout</button>
+            <a type="logout" name="logout_btn" href="../logout.php"class="btn btn-primary">Logout</a>
 
           </form>
         </div>

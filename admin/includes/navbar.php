@@ -64,10 +64,7 @@
   </a>
   <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
     <div class="bg-white py-2 collapse-inner rounded">
-      <h6 class="collapse-header">Customize Alert Messages:</h6>
-      <a class="collapse-item" href="#">View Default Alerts</a>
-      <a class="collapse-item" href="#">Add Default Alerts</a>
-      <a class="collapse-item" href="#">Edit Default Alerts</a>
+      <h6 class="collapse-header">Alert Messages:</h6>
       <a class="collapse-item" href="alerts.php">Created Alerts</a>
     </div>
   </div>
@@ -149,7 +146,7 @@
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                <a class="dropdown-item" href="../userprofile.php">
+                <a class="dropdown-item" href="userprofile.php">
                   <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                   Profile
                 </a>

@@ -60,24 +60,18 @@ include('includes/navbar.php');
               <div class="h5 mb-0 font-weight-bold text-gray-800">
 
               <div id="chart"></div>
-
               <?php
                 require('db_connect.php');
 
-                $officer_id = $_POST['officer_id'] ?? "";
-                $query="SELECT * FROM alert";
-                $result=mysqli_query($conn,$query);
+                $officer_id = $_POST['id_number'] ?? "";
+                $query="SELECT * FROM citizens";
+                $query_run=mysqli_query($conn,$query);
 
-                //$row=mysqli_num_rows($query_run);
-                $chart_data='';
-                while($row=mysqli_fetch_array($result))
-                {
-                  $chart_data.="{alertType:'".$row["alertType"]."',county:'".$row["county"]."',alertCreationDate:'".$row["alertCreationDate"]."'},";
-                }
-                $chart_data=substr($chart_data,0,-2);
-               // echo '<h4>'.$row.'</h4>';
+                $row=mysqli_num_rows($query_run);
+                echo '<h4>'.$row.'</h4>';
                 ?>
 
+              
               </div>
             </div>
             <div class="col-auto">

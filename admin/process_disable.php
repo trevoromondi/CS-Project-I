@@ -14,7 +14,7 @@ if(isset($_GET['officer_id']))
 
         echo '<script>window.confirm("Do you really want to disable this account?")</script>';
         {
-        $update="UPDATE user SET verified = 0 WHERE officer_id='$officer_id'";
+        $update="UPDATE user SET verified = 'Disabled' WHERE officer_id='$officer_id'";
         }
 
         if(mysqli_query($conn,$update))
