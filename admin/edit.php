@@ -56,12 +56,13 @@
                          </div>
                      </div>
             
+                     <br>
                 <div class="form-row">
                     <div class="col-lg-7">
             <label for="Admin">Admin:</label>
-            <input type="radio" name="role" value="Admin" <?php if($option=="Admin") echo 'checked="checked"'; ?> id="Admin" class="form-control my-3 p-4">
+            <input type="radio" name="role" value="Admin" <?php if($option=="Admin") echo 'checked="checked"'; ?> id="Admin">
             <label for="Client">Client:</label>
-            <input type="radio" name="role" value="Client" <?php if($option=="Client") echo 'checked="selected"'; ?>id="Client" class="form-control my-3 p-4"><br><br>
+            <input type="radio" name="role" value="Client" <?php if($option=="Client") echo 'checked="selected"'; ?>id="Client"><br><br>
 </div>
 </div>
     

@@ -14,7 +14,7 @@ error_reporting(E_ALL ^ E_NOTICE);
 <!doctype html>
 <html>
     <head>
-        <title>Citizen Portal</title>
+        <title>RED | Citizen Portal</title>
         <link rel="stylesheet" type="text/css" href="landing.css">
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -42,7 +42,7 @@ error_reporting(E_ALL ^ E_NOTICE);
                   <div class="collapse navbar-collapse" id="micon">
 
                   <ul class="nav navbar-nav navbar-right">
-                      <li><a href="userprofile.php">Profile</a></li>
+                      <li><a href="citizenprofile.php">Profile</a></li>
                       <li><a href="#">WELCOME: USER- <?php echo $_SESSION['id_number'] ?? ""; ?> </a></li>
                       <li><a type="logout" name="logout" class="btn1" href="citizen_logout.php">Logout</a></li>
                   </ul>

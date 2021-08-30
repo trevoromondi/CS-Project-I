@@ -5,7 +5,7 @@ if (isset($_GET['vkey']))
     //Start verification process
     $vkey=$_GET['vkey'];
 
-    $query="SELECT verified,vkey FROM user WHERE verified= 0 AND vkey='$vkey'";
+    $query="SELECT verified,vkey FROM user WHERE verified= 'Disabled' AND vkey='$vkey'";
     $resultSet=mysqli_query($conn,$query);
     echo $vkey;
     
@@ -16,7 +16,7 @@ if (isset($_GET['vkey']))
         {
             echo $row['verified'];
             //Email Validation
-            $update="UPDATE user SET verified = 1 WHERE vkey='$vkey'";
+            $update="UPDATE user SET verified = 'Enabled' WHERE vkey='$vkey'";
             
             if(mysqli_query($conn,$update))
             {    

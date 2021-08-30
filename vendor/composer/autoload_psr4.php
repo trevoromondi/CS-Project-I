@@ -7,4 +7,5 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'PHPMailer\\PHPMailer\\' => array($vendorDir . '/phpmailer/phpmailer/src'),
+    'MessageBird\\' => array($vendorDir . '/messagebird/php-rest-api/src/MessageBird'),
 );

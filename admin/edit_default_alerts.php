@@ -83,12 +83,10 @@
   <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
     <div class="bg-white py-2 collapse-inner rounded">
       <h6 class="collapse-header">Customize Alert Messages:</h6>
-      <a class="collapse-item" href="view_default_alerts.php">View Default Alerts</a>
-      <a class="collapse-item" href="create_default_alert.php">Add Default Alerts</a>
-      <a class="collapse-item" href="edit_default_alerts.php">Edit Default Alerts</a>
-      <a class="collapse-item" href="fire_alerts.php">All Fire Sent Alerts</a>
-      <a class="collapse-item" href="missing_alerts.php">All Missing Persons Alerts</a>
-      <a class="collapse-item" href="#">All Terrorism Sent Alerts</a>
+      <a class="collapse-item" href="#">View Default Alerts</a>
+      <a class="collapse-item" href="#">Add Default Alerts</a>
+      <a class="collapse-item" href="#">Edit Default Alerts</a>
+      <a class="collapse-item" href="alerts.php">All Sent Alerts</a>
     </div>
   </div>
 </li>

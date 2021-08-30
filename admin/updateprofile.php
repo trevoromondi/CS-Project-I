@@ -4,7 +4,7 @@ session_start();
 
 if (!isset($_SESSION["officer_id"])) {
 
-    header("Location: landing_page.php");
+    header("Location: userprofile.php");
 }
 
 include 'db_connect.php';
@@ -20,17 +20,19 @@ if (isset($_POST["submit"])) {
         $photo_name = $_FILES["photo"]["name"];
         $photo_tmp_name = $_FILES["photo"]["tmp_name"];
         $photo_size = $_FILES["photo"]["size"];
-        $photo_new_name = rand() . $photo_name;
+        $photo_new_name = $photo_name;
+        $file_path="uploads/";
+        $path=$file_path.$photo_new_name;
 
         if ($photo_size > 5242880) {
             echo "<script>alert('Photo is very big. Maximum photo uploading size is 5MB.');</script>";
         } else {
-            $sql = "UPDATE user SET officer_name='$officer_name', photo='$photo_new_name' WHERE officer_id='{$_SESSION["officer_id"]}'";
+            $sql = "UPDATE user SET officer_name='$officer_name', photo='$path' WHERE officer_id='{$_SESSION["officer_id"]}'";
             $result = mysqli_query($conn, $sql);
             if ($result) {
                 echo "<script>alert('Profile Updated successfully.');</script>";
-                echo '<script>window.location="admin.php"</script>';
-                move_uploaded_file($photo_tmp_name, "uploads/" . $photo_new_name);
+                echo '<script>window.location="userprofile.php"</script>';
+                move_uploaded_file($photo_tmp_name, "uploads/".$photo_new_name);
             } else {
                 echo "<script>alert('Profile can not Updated.');</script>";
                 echo  $conn->error;
@@ -51,9 +53,9 @@ if (isset($_POST["submit"])) {
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../style.css">
 
-    <title>Update Profile</title>
+    <title>RED | Update Profile</title>
 
   </head>
   <body>
@@ -61,7 +63,7 @@ if (isset($_POST["submit"])) {
           <div class="container">
               <div class="row g-0">
                   <div class="col-lg-5">
-                      <img src="./assets/fire.jpg" class="img-fluid" alt="">
+                  <img src="../assets/rescue.jpeg" class="img-fluid"style="height: 900px" alt="">
                   </div>
                   <div class="col-lg-7 px-5 pt-5">
                       <h1 class="font-weight-bold py-3">Emergency Alert System</h1>
@@ -91,17 +93,17 @@ if (isset($_POST["submit"])) {
                           </div>
                           <div class="form-row">
                               <div class="col-lg-7">
-                                  <input id="pwd" type="password" name="pwd" placeholder="Password" class="form-control my-3 p-4" >
+                                  <input id="pwd" type="password" name="pwd" placeholder="Current Password" class="form-control my-3 p-4" required>
                               </div>
                           </div>
                           <div class="form-row">
                               <div class="col-lg-7">
-                                  <input id="pwd2" type="password" name="pwd2"placeholder="Confirm Password" class="form-control my-3 p-4" >
+                                  <input id="pwd2" type="password" name="pwd2"placeholder="Confirm Password" class="form-control my-3 p-4" required>
                               </div>
                           </div>
                           <div class="form-row">
                               <div class="col-lg-7">
-                                  <input id="photo" type="file" name="photo" accept="image/*" class="form-control my-3 p-4" >
+                                  <input id="photo" type="file" name="photo" accept="image/*" value="<?php echo $row['photo'];?>"class="form-control my-3 p-4" required>
                               </div>
                           </div>
                           <?php

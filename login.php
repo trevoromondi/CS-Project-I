@@ -11,9 +11,9 @@ if(isset($_POST["login"]))
     $query1="SELECT * FROM user WHERE officer_id='".$officer_id."'";
     $resultSet=mysqli_query($conn,$query1);
 
-    print_r($resultSet);
-    echo $pwd2;
-    echo $pwd;
+    //print_r($resultSet);
+    //echo $pwd2;
+    //echo $pwd;
 
     $row = mysqli_fetch_array($resultSet);
     $pwd2=$row['pwd'];
@@ -25,13 +25,13 @@ if(isset($_POST["login"]))
         echo '<script>alert("ACCOUNT NOT IN DATABASE")</script>';
         echo '<script>window.location="login.php"</script>';
     }
-    elseif($verified==0)
+    elseif($verified=='Disabled')
     {
         echo '<script>alert("ACCOUNT NOT VERIFIED. CHECK EMAIL OR CONTACT ADMINISTRATOR")</script>';
         echo '<script>window.location="login.php"</script>';
         
     }
-    elseif($verified==1 && $pwd2 == md5($pwd) && $row['role']=='Admin')
+    elseif($verified=='Enabled' && $pwd2 == md5($pwd) && $row['role']=='Admin')
     {
         $_SESSION['officer_id']=$officer_id;
         
@@ -39,7 +39,7 @@ if(isset($_POST["login"]))
         echo '<script>window.location="admin.php"</script>';
         header('location:admin');
     }
-    elseif($verified==1 && $pwd2 == md5($pwd) && $row['role']=='Client')
+    elseif($verified=='Enabled' && $pwd2 == md5($pwd) && $row['role']=='Client')
     {
         $_SESSION['officer_id']=$officer_id;
         

@@ -22,6 +22,9 @@
   <!-- Custom styles for this template-->
   <link href="css/sb-admin-2.min.css" rel="stylesheet">
 
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.11.0/css/dataTables.bootstrap4.min.css">
+  
+
 </head>
 
 <body id="page-top">
@@ -86,9 +89,7 @@
       <a class="collapse-item" href="view_default_alerts.php">View Default Alerts</a>
       <a class="collapse-item" href="create_default_alert.php">Add Default Alerts</a>
       <a class="collapse-item" href="edit_default_alerts.php">Edit Default Alerts</a>
-      <a class="collapse-item" href="fire_alerts.php">All Fire Sent Alerts</a>
-      <a class="collapse-item" href="missing_alerts.php">All Missing Persons Alerts</a>
-      <a class="collapse-item" href="#">All Terrorism Sent Alerts</a>
+      <a class="collapse-item" href="alerts.php">All Sent Alerts</a>
     </div>
   </div>
 </li>
@@ -194,15 +195,16 @@
           <div class="row">
 
             <div class="col-lg-6">
-
-              
-            
-              <table class="table table-secondary table-bordered-responsive">
-                <tr>
+ 
+              <table id="datatableid"class="table table-secondary table-bordered-responsive">
+              <thead>  
+              <tr>
                   <th>Alert ID</th>
                   <th>Alert Type</th>
                   <th>Alert Message</th>
                 </tr>
+              </thead>
+              <tbody>
                 <?php
                 $conn=mysqli_connect("localhost","root","","cs_project");
 
@@ -222,11 +224,13 @@
                     {
 
                       echo"
+                      
                       <tr>
                       <td>".$row["alert_id"]."</td>
                       <td>".$row["alert_type"]."</td>
                       <td>".$row["alert_message"]."</td>
                       </tr>
+                      
                       ";
                     }
                     echo"</table>";
@@ -239,6 +243,7 @@
                   }
                   $conn->close();
                 ?>
+                </tbody>
               </table>
             </div>
           </div>
@@ -302,6 +307,17 @@
   <!-- Custom scripts for all pages-->
   <script src="js/sb-admin-2.min.js"></script>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdn.datatables.net/1.11.0/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.11.0/js/dataTables.bootstrap4.min.js"></script>
+
+  <script>
+    $(document).ready(function() 
+    {
+      $('#datatableid').DataTable();
+    });
+
+    </script>
 </body>
 
 </html>

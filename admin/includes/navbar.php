@@ -64,13 +64,8 @@
   </a>
   <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
     <div class="bg-white py-2 collapse-inner rounded">
-      <h6 class="collapse-header">Customize Alert Messages:</h6>
-      <a class="collapse-item" href="view_default_alerts.php">View Default Alerts</a>
-      <a class="collapse-item" href="create_default_alert.php">Add Default Alerts</a>
-      <a class="collapse-item" href="edit_default_alerts.php">Edit Default Alerts</a>
-      <a class="collapse-item" href="fire_alerts.php">All Fire Sent Alerts</a>
-      <a class="collapse-item" href="missing_alerts.php">All Missing Persons Alerts</a>
-      <a class="collapse-item" href="#">All Terrorism Sent Alerts</a>
+      <h6 class="collapse-header">Alert Messages:</h6>
+      <a class="collapse-item" href="alerts.php">Created Alerts</a>
     </div>
   </div>
 </li>
@@ -147,10 +142,11 @@
                 ?>  
                 </span>
                 <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
+                
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                <a class="dropdown-item" href="../userprofile.php">
+                <a class="dropdown-item" href="userprofile.php">
                   <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                   Profile
                 </a>

@@ -14,7 +14,7 @@ error_reporting(E_ALL ^ E_NOTICE);
 <!doctype html>
 <html>
     <head>
-        <title>Landing Page</title>
+        <title>RED | Landing Page</title>
         <link rel="stylesheet" type="text/css" href="landing.css">
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -60,18 +60,13 @@ error_reporting(E_ALL ^ E_NOTICE);
                       <br>
                       <br>
                       <br>
-                      
-                      <div class="dropdown">
-                          <button class="btn btn-danger dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                              Create Message
-                              <span class="caret"></span>
-                            </button>
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                                <li><a href="create_missingperson.php">Missing Person Alert</a></li>
-                                <li><a href="create_terrorism.php">Terrorism Alert</a></li>
-                                <li><a href="create_fire.php">Fire Alert</a></li>
-                            </ul>
-                        </div>
+
+                      <form action="" method="POST">
+          
+                        <a type="button" name="button" href="alert_message.php"class="btn btn-primary-responsive">Create Alert Message</a>
+
+                    </form>
+
 
                     
                       <!--<a class="btn btn_first" href="createmessage.php">Create message</a>-->
