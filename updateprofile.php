@@ -93,12 +93,12 @@ if (isset($_POST["submit"])) {
                           </div>
                           <div class="form-row">
                               <div class="col-lg-7">
-                                  <input id="pwd" type="password" name="pwd" placeholder="Password" class="form-control my-3 p-4" >
+                                  <input id="pwd" type="password" name="pwd" placeholder="Current Password" class="form-control my-3 p-4" required>
                               </div>
                           </div>
                           <div class="form-row">
                               <div class="col-lg-7">
-                                  <input id="pwd2" type="password" name="pwd2"placeholder="Confirm Password" class="form-control my-3 p-4" >
+                                  <input id="pwd2" type="password" name="pwd2"placeholder="Confirm Password" class="form-control my-3 p-4" required >
                               </div>
                           </div>
                           <div class="form-row">
@@ -113,8 +113,8 @@ if (isset($_POST["submit"])) {
 
                           <div class="form-row">
                               <div class="col-lg-7">
-                              <button type="submit" name="submit" class="btn1 mt-3 mb-5">Update Profile</button>
-                            </div>
+                              <button type="submit" name="submit" class="btn1 mt-3 mb-2">Update Profile</button> 
+                            </div>    
                           </div>
                           <!--<p>Already have an account? <a href="login.php">Login here</a></p>-->
                       </form>

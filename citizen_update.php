@@ -106,12 +106,12 @@ if (isset($_POST["submit"])) {
                           
                           <div class="form-row">
                               <div class="col-lg-7">
-                                  <input id="pwd" type="password" name="pwd" placeholder="Password" class="form-control my-3 p-4" >
+                                  <input id="pwd" type="password" name="pwd" placeholder="Current Password" class="form-control my-3 p-4" required>
                               </div>
                           </div>
                           <div class="form-row">
                               <div class="col-lg-7">
-                                  <input id="pwd2" type="password" name="pwd2"placeholder="Confirm Password" class="form-control my-3 p-4" >
+                                  <input id="pwd2" type="password" name="pwd2"placeholder="Confirm Password" class="form-control my-3 p-4" required>
                               </div>
                           </div>
                           <?php

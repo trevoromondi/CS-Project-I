@@ -28,7 +28,7 @@ if($result)
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../style.css">
 
     <title>Update Profile</title>
 
@@ -110,7 +110,8 @@ if($result)
                               <div class="col-lg-7">
                               <a href="citizen_update.php" class="btn btn-primary ">Update Profile</a>
                               <a href="citizen_passr.php" class="btn btn-primary ">Password Reset</a>
-                            </div>
+                            </div><br>
+                            <a href="citizen.php" class="btn btn-primary ">Back</a>
                           </div>
                           <br>
                           <br>

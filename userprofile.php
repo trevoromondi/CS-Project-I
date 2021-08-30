@@ -100,6 +100,10 @@ if($result)
                               <div class="col-lg-7">
                               <a href="updateprofile.php" class="btn btn-primary ">Update Profile</a>
                               <a href="passwordreset.php" class="btn btn-primary ">Password Reset</a>
+                            </div><br>
+                            <div class="form-row">
+                              <div class="col-lg-7">
+                              <a href="landing_page.php" class="btn btn-primary ">Back</a>
                             </div>
                           </div>
                           <br>
