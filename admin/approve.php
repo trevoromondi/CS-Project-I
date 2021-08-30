@@ -55,16 +55,18 @@
                     <br>
                     
                     <div class="form-row">
+                    <label for="Admin">Status</label>
                         <div class="col-lg-7">
                             <label for="Admin">Approved</label>
-                            <input type="radio" name="status" value="Approved" <?php if($option=="Approved") echo 'checked="checked"'; ?> id="Approved" class="">
-                            <label for="Client">Pending</label>
-                            <input type="radio" name="status" value="Pending" <?php if($option=="Pending") echo 'checked="selected"'; ?>id="Pending" class=""><br><br>
+                            <input type="radio" name="status" value="Approved"  id="Approved" class="">
+                            <label for="Client">Denied</label>
+                            <input type="radio" name="status" value="Denied" id="Denied" class=""><br><br>
                         </div>
                     </div>
 
                     <div class="form-row">
                         <div class="col-lg-7">
+                            <label for="officer_id">Reporting Officer ID</label>
                             <input type="text" name="officer_id" id="officer_id" value="<?= $data['officer_id']?>" class="form-control my-3 p-4">
                         </div>
                     </div>
@@ -78,7 +80,7 @@
 
         <div class="form-row">
             <div class="col-lg-7">
-            <button type="update" id="update" name="update" class="btn1 mt-3 mb-5">Approve</button>
+            <button type="submit" id="submit" name="submit" class="btn1 mt-3 mb-5">Submit</button>
             </div>
         </div>
         </form>
