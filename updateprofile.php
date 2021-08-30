@@ -31,7 +31,7 @@ if (isset($_POST["submit"])) {
             $result = mysqli_query($conn, $sql);
             if ($result) {
                 echo "<script>alert('Profile Updated successfully.');</script>";
-                echo '<script>window.location="landing_page.php"</script>';
+                echo '<script>window.location="userprofile.php"</script>';
                 move_uploaded_file($photo_tmp_name, "uploads/".$photo_new_name);
             } else {
                 echo "<script>alert('Profile can not Updated.');</script>";
@@ -55,7 +55,7 @@ if (isset($_POST["submit"])) {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
 
-    <title>Update Profile</title>
+    <title>RED | Update Profile</title>
 
   </head>
   <body>

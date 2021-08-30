@@ -14,7 +14,7 @@ error_reporting(E_ALL ^ E_NOTICE);
 <!doctype html>
 <html>
     <head>
-        <title>Citizen Portal</title>
+        <title>RED | Citizen Portal</title>
         <link rel="stylesheet" type="text/css" href="landing.css">
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">

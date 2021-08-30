@@ -56,7 +56,7 @@ include('includes/navbar.php');
         <div class="card-body">
           <div class="row no-gutters align-items-center">
             <div class="col mr-2">
-              <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Total Registered Users</div>
+              <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Total Registered Citizens</div>
               <div class="h5 mb-0 font-weight-bold text-gray-800">
 
               <div id="chart"></div>
@@ -117,7 +117,7 @@ include('includes/navbar.php');
 
   <!-- Content Row -->
 
-<script>
+<!--<script>
   $(document).ready(function)(){
   Morris.Bar({
     element:'chart',
@@ -129,7 +129,7 @@ include('includes/navbar.php');
     stacked:true
   });
   });
-  </script>
+  </script>-->
 
 <?php
 include('includes/scripts.php');

@@ -3,7 +3,7 @@ session_start();
 
 if (!isset($_SESSION["officer_id"])) {
 
-    header("Location: landing.php");
+    header("Location: landing_page.php");
 }
 
 if(isset($_POST["submit"]))
@@ -21,7 +21,7 @@ if(isset($_POST["submit"]))
     if($insert)
     {
         echo '<script>alert("SUCCESS")</script>';
-        echo '<script>window.location="landing.php"</script>';
+        echo '<script>window.location="landing_page.php"</script>';
     }else
     {
         echo '<script>alert("FAIL")</script>';
@@ -42,7 +42,7 @@ if(isset($_POST["submit"]))
 
         <link rel="stylesheet" href="landing.css">
         
-        <title>Create Message</title>
+        <title>RED | Create Message</title>
     </head>
 
     <body>
@@ -113,15 +113,15 @@ if(isset($_POST["submit"]))
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Send Alert Message</h5>
+          <h5 class="modal-title" id="exampleModalLabel">Send Alert Message for Approval</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          Are you sure you want to send this message
+          Are you sure you want to submit this message for approval
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="submit" name="submit" class="btn btn-primary">Send Message</button>
+          <button type="submit" name="submit" class="btn btn-primary">Submit Message</button>
         </div>
       </div>
     </div>

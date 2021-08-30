@@ -31,10 +31,10 @@ if(isset($_POST['submit']))
           {
               echo "0 results";
           }
-          print_r($phoneNumbers);
+          //print_r($phoneNumbers);
           $client = new MessageBird\Client('JcxdYSxeEs3kuG8bmHJjVaP05');
        
-         echo "Success";
+         //echo "Success";
          //print_r($client);
 
         //if($status='Approved')
@@ -44,15 +44,15 @@ if(isset($_POST['submit']))
             $message->recipients = $phoneNumbers;
             $message->body = $alertDescription;
             $response = $client->messages->create($message);
-            print_r($response);
+            //print_r($response);
         
             echo '<script>alert("Message Approved and Sent")</script>';
-            echo '<script>window.location="alerts.php"</script>';
+            echo '<script>window.location="messagesent.php"</script>';
 
       }else
          {
             echo '<script>alert("Try Again")</script>';
-            echo "something went wrong ";
+            //echo "something went wrong ";
          }
 
     }else if($status=='Denied')

@@ -30,32 +30,32 @@
         <div class="container">
             <div class="row g-0">
                 <div class="col-lg-5">
-                    <img src="../assets/fire.jpg" class="img-fluid" alt="">
+                    <img src="../assets/red.jpg" class="img-fluid" style="height: 600px"alt="">
                 </div>
                 
                 <div class="col-lg-7 px-5 pt-5">
                     <h1 class="font-weight-bold py-3">Emergency Alert System</h1>
                     <h4>Approve Alert Message</h4>
                     <form action="process_approve.php" method=POST enctype="multipart/form-data">
-
+<br>
                     <div class="form-row">
                         <div class="col-lg-7">
-                            <label class="form-label">Alert ID</label>
-                            <input type="number" name="alertID" value= "<?= $data['alertID'] ?>" id="alertID" class="form-control my-3 p-4">
+                            <label class="form-label" style="font-weight: bold">Alert ID</label>
+                            <input type="number" name="alertID" value= "<?= $data['alertID'] ?>" id="alertID" class="form-control my-3 p-4" disabled>
                         </div>
                     </div>
 
                     <div class="form-row">
                         <div class="col-lg-7">
-                        <label class="form-label">Alert</label>
-                         <textarea name="alertDescription" class="form-control" rows="3"><?= $data['alertDescription']?></textarea>
+                        <label class="form-label" style="font-weight: bold">Alert</label>
+                         <textarea disabled name="alertDescription" class="form-control" rows="3"> <?= $data['alertDescription']?> </textarea>
                     </div>
                     </div>
 
                     <br>
                     
                     <div class="form-row">
-                    <label for="Admin">Status</label>
+                    <label for="Admin" style="font-weight: bold">Status</label>
                         <div class="col-lg-7">
                             <label for="Admin">Approved</label>
                             <input type="radio" name="status" value="Approved"<?php if($option=="Approved") echo 'checked="checked"'; ?>  id="Approved" class="">
@@ -66,8 +66,8 @@
 
                     <div class="form-row">
                         <div class="col-lg-7">
-                            <label for="officer_id">Reporting Officer ID</label>
-                            <input type="text" name="officer_id" id="officer_id" value="<?= $data['officer_id']?>" class="form-control my-3 p-4">
+                            <label for="officer_id" style="font-weight: bold">Reporting Officer ID</label>
+                            <input type="text" name="officer_id" id="officer_id" value="<?= $data['officer_id']?>" class="form-control my-3 p-4" disabled>
                         </div>
                     </div>
     
