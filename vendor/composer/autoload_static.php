@@ -11,12 +11,20 @@ class ComposerStaticInit824e93f9485a265fdb4e63b7edb99122
         array (
             'PHPMailer\\PHPMailer\\' => 20,
         ),
+        'M' => 
+        array (
+            'MessageBird\\' => 12,
+        ),
     );
 
     public static $prefixDirsPsr4 = array (
         'PHPMailer\\PHPMailer\\' => 
         array (
             0 => __DIR__ . '/..' . '/phpmailer/phpmailer/src',
+        ),
+        'MessageBird\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/messagebird/php-rest-api/src/MessageBird',
         ),
     );
 
