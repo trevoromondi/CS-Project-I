@@ -41,14 +41,14 @@
                     <div class="form-row">
                         <div class="col-lg-7">
                             <label class="form-label" style="font-weight: bold">Alert ID</label>
-                            <input type="number" name="alertID" value= "<?= $data['alertID'] ?>" id="alertID" class="form-control my-3 p-4" disabled>
+                            <input type="number" name="alertID" value= "<?= $data['alertID'] ?>" id="alertID" class="form-control my-3 p-4">
                         </div>
                     </div>
 
                     <div class="form-row">
                         <div class="col-lg-7">
                         <label class="form-label" style="font-weight: bold">Alert</label>
-                         <textarea disabled name="alertDescription" class="form-control" rows="3"> <?= $data['alertDescription']?> </textarea>
+                         <textarea name="alertDescription" class="form-control" rows="3"> <?= $data['alertDescription']?> </textarea>
                     </div>
                     </div>
 
@@ -67,7 +67,7 @@
                     <div class="form-row">
                         <div class="col-lg-7">
                             <label for="officer_id" style="font-weight: bold">Reporting Officer ID</label>
-                            <input type="text" name="officer_id" id="officer_id" value="<?= $data['officer_id']?>" class="form-control my-3 p-4" disabled>
+                            <input type="text" name="officer_id" id="officer_id" value="<?= $data['officer_id']?>" class="form-control my-3 p-4">
                         </div>
                     </div>
     
